@@ -169,12 +169,17 @@ calib.round(4)
 
 # %%
 # Platt 보정: OOF 예측으로 로지스틱 보정기를 학습해 평가 데이터 확률에 적용
+def logit(p):
+    p = np.clip(p, 1e-6, 1 - 1e-6)
+    return np.log(p / (1 - p)).reshape(-1, 1)
+
+
 platt_rows = []
 for name, (_, yt, pt, _) in oof.items():
-    cal = LogisticRegression().fit(np.log(pt / (1 - pt + 1e-12) + 1e-12).reshape(-1, 1), yt)
+    cal = LogisticRegression().fit(logit(pt), yt)   # OOF로 보정기 학습
 
     def calibrate(p, cal=cal):
-        return cal.predict_proba(np.log(p / (1 - p + 1e-12) + 1e-12).reshape(-1, 1))[:, 1]
+        return cal.predict_proba(logit(p))[:, 1]
 
     pt_test = test_p[name]
     platt_rows.append({
