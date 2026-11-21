@@ -1,0 +1,32 @@
+# 비밀 정보
+.env
+.env.*
+!.env.example
+
+# 데이터셋 원본 (라이선스상 재배포하지 않음 — 취득 방법은 각 장 안내 참조)
+data/
+datasets/
+*.zip
+*.tar.gz
+
+# 학습 산출물
+*.pt
+*.pth
+*.ckpt
+*.onnx
+mlruns/
+lightning_logs/
+outputs/
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / 편집기
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
