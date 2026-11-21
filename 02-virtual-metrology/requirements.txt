@@ -1,0 +1,9 @@
+# 책 실측에 사용한 버전 (2026-11). Colab 기본 버전과 다르면 결과가 조금 달라질 수 있습니다.
+numpy==2.5.5
+pandas==3.1.1
+scikit-learn==1.9.1
+xgboost==3.4.1
+optuna==5.1.0
+matplotlib==3.11.2
+# 10장 딥러닝 (책 수치는 CPU 버전으로 측정. Colab GPU 런타임에는 기본 설치된 torch를 그대로 쓰면 됩니다)
+torch==2.15.0

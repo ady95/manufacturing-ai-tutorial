@@ -1,0 +1,132 @@
+{
+  "device": "cpu",
+  "torch": "2.15.0+cpu",
+  "seq_len": 128,
+  "n_channels": 19,
+  "n_static": 5,
+  "inner_split": [
+    1679,
+    298
+  ],
+  "receptive_field": 125,
+  "params": {
+    "LSTM": 59585,
+    "TCN": 34977
+  },
+  "deep_runs": {
+    "LSTM": [
+      {
+        "seed": 42,
+        "epochs": 51,
+        "train_sec": 44.967,
+        "infer_sec": 0.072,
+        "MAE": 3.176,
+        "RMSE": 4.198
+      },
+      {
+        "seed": 43,
+        "epochs": 39,
+        "train_sec": 32.619,
+        "infer_sec": 0.079,
+        "MAE": 3.22,
+        "RMSE": 4.202
+      },
+      {
+        "seed": 44,
+        "epochs": 32,
+        "train_sec": 26.228,
+        "infer_sec": 0.072,
+        "MAE": 3.249,
+        "RMSE": 4.246
+      }
+    ],
+    "TCN": [
+      {
+        "seed": 42,
+        "epochs": 51,
+        "train_sec": 58.729,
+        "infer_sec": 0.108,
+        "MAE": 2.914,
+        "RMSE": 3.798
+      },
+      {
+        "seed": 43,
+        "epochs": 43,
+        "train_sec": 51.113,
+        "infer_sec": 0.121,
+        "MAE": 2.897,
+        "RMSE": 3.777
+      },
+      {
+        "seed": 44,
+        "epochs": 48,
+        "train_sec": 55.819,
+        "infer_sec": 0.115,
+        "MAE": 2.906,
+        "RMSE": 3.727
+      }
+    ]
+  },
+  "table": {
+    "RandomForest": {
+      "MAE": 2.497,
+      "MAE_sd": 0.0,
+      "RMSE": 3.353,
+      "R2_A123": 0.419,
+      "R2_A456": 0.8,
+      "R2_B": 0.823,
+      "train_sec": 2.167,
+      "infer_sec": 0.1
+    },
+    "XGBoost": {
+      "MAE": 2.529,
+      "MAE_sd": 0.0,
+      "RMSE": 3.374,
+      "R2_A123": 0.264,
+      "R2_A456": 0.739,
+      "R2_B": 0.862,
+      "train_sec": 0.774,
+      "infer_sec": 0.008
+    },
+    "시각 kNN": {
+      "MAE": 2.127,
+      "MAE_sd": 0.0,
+      "RMSE": 2.858,
+      "R2_A123": 0.45,
+      "R2_A456": 0.845,
+      "R2_B": 0.886,
+      "train_sec": 0.0,
+      "infer_sec": 0.0
+    },
+    "GroupMean": {
+      "MAE": 5.827,
+      "MAE_sd": 0.0,
+      "RMSE": 7.454,
+      "R2_A123": -0.011,
+      "R2_A456": -0.014,
+      "R2_B": -0.003,
+      "train_sec": 0.0,
+      "infer_sec": 0.0
+    },
+    "LSTM": {
+      "MAE": 3.215,
+      "MAE_sd": 0.03,
+      "RMSE": 4.215,
+      "R2_A123": 0.253,
+      "R2_A456": 0.632,
+      "R2_B": 0.734,
+      "train_sec": 34.605,
+      "infer_sec": 0.074
+    },
+    "TCN": {
+      "MAE": 2.906,
+      "MAE_sd": 0.007,
+      "RMSE": 3.767,
+      "R2_A123": 0.203,
+      "R2_A456": 0.685,
+      "R2_B": 0.814,
+      "train_sec": 55.22,
+      "infer_sec": 0.115
+    }
+  }
+}

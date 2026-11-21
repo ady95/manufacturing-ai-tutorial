@@ -1,0 +1,519 @@
+{
+  "optuna": {
+    "trials": 40,
+    "sec": 361.2,
+    "best_params": {
+      "n_estimators": 970,
+      "max_depth": 7,
+      "learning_rate": 0.0573505757679878,
+      "subsample": 0.9118749304779413,
+      "colsample_bytree": 0.9887251833105823,
+      "min_child_weight": 12,
+      "reg_lambda": 0.010197233727414474
+    },
+    "base_cv_mae": 2.615,
+    "tuned_cv_mae": 2.468
+  },
+  "compare_hold": {
+    "XGBoost 기본": {
+      "cv_MAE": 2.615,
+      "hold": {
+        "전체": {
+          "n": 848.0,
+          "MAE": 2.529,
+          "RMSE": 3.374,
+          "R2": 0.987
+        },
+        "A123": {
+          "n": 140.0,
+          "MAE": 2.615,
+          "RMSE": 3.409,
+          "R2": 0.264
+        },
+        "A456": {
+          "n": 350.0,
+          "MAE": 2.49,
+          "RMSE": 3.38,
+          "R2": 0.739
+        },
+        "B": {
+          "n": 358.0,
+          "MAE": 2.534,
+          "RMSE": 3.354,
+          "R2": 0.862
+        }
+      }
+    },
+    "XGBoost Optuna": {
+      "cv_MAE": 2.468,
+      "hold": {
+        "전체": {
+          "n": 848.0,
+          "MAE": 2.391,
+          "RMSE": 3.189,
+          "R2": 0.988
+        },
+        "A123": {
+          "n": 140.0,
+          "MAE": 2.459,
+          "RMSE": 3.116,
+          "R2": 0.385
+        },
+        "A456": {
+          "n": 350.0,
+          "MAE": 2.189,
+          "RMSE": 2.905,
+          "R2": 0.807
+        },
+        "B": {
+          "n": 358.0,
+          "MAE": 2.563,
+          "RMSE": 3.469,
+          "R2": 0.853
+        }
+      }
+    }
+  },
+  "chosen": "XGBoost Optuna",
+  "conformal_q90": {
+    "A123": 4.61,
+    "A456": 4.88,
+    "B": 5.73
+  },
+  "conformal_cover": 0.906,
+  "conformal_cover_grp": {
+    "A123": 0.864,
+    "A456": 0.92,
+    "B": 0.908
+  },
+  "quantile_cover": 0.542,
+  "quantile_cover_grp": {
+    "A123": 0.421,
+    "A456": 0.56,
+    "B": 0.573
+  },
+  "quantile_width_median": 4.84,
+  "cqr_Q": 3.56,
+  "cqr_cover": 0.907,
+  "cqr_cover_grp": {
+    "A123": 0.864,
+    "A456": 0.929,
+    "B": 0.902
+  },
+  "cqr_width_median": 11.96,
+  "cqr_width_q10_q90": [
+    9.41,
+    14.34
+  ],
+  "cqr_rule": {
+    "over_tol_accepted": 0.087,
+    "over_tol_rejected": 0.153
+  },
+  "tol": 5.0,
+  "over_tol": 0.1,
+  "over_tol_grp": {
+    "A123": 0.114,
+    "A456": 0.074,
+    "B": 0.12
+  },
+  "accept_rule": {
+    "accept": 0.988,
+    "over_tol_accepted": 0.097,
+    "over_tol_rejected": 0.4
+  },
+  "time_knn_hold": {
+    "전체": {
+      "n": 848.0,
+      "MAE": 2.127,
+      "RMSE": 2.858,
+      "R2": 0.99
+    },
+    "A123": {
+      "n": 140.0,
+      "MAE": 2.261,
+      "RMSE": 2.947,
+      "R2": 0.45
+    },
+    "A456": {
+      "n": 350.0,
+      "MAE": 1.907,
+      "RMSE": 2.608,
+      "R2": 0.845
+    },
+    "B": {
+      "n": 358.0,
+      "MAE": 2.29,
+      "RMSE": 3.049,
+      "R2": 0.886
+    }
+  },
+  "chrono": {
+    "init_n": 1130,
+    "init_days": 28.4,
+    "stream_n": 1695,
+    "static": {
+      "Ridge": {
+        "전체": {
+          "n": 1695.0,
+          "MAE": 7.956,
+          "RMSE": 9.736,
+          "R2": 0.883
+        },
+        "A123": {
+          "n": 309.0,
+          "MAE": 4.418,
+          "RMSE": 5.672,
+          "R2": -1.289
+        },
+        "A456": {
+          "n": 655.0,
+          "MAE": 6.663,
+          "RMSE": 8.167,
+          "R2": -2.54
+        },
+        "B": {
+          "n": 731.0,
+          "MAE": 10.611,
+          "RMSE": 12.101,
+          "R2": -2.81
+        }
+      },
+      "RandomForest": {
+        "전체": {
+          "n": 1695.0,
+          "MAE": 8.594,
+          "RMSE": 10.389,
+          "R2": 0.867
+        },
+        "A123": {
+          "n": 309.0,
+          "MAE": 3.239,
+          "RMSE": 4.072,
+          "R2": -0.18
+        },
+        "A456": {
+          "n": 655.0,
+          "MAE": 7.66,
+          "RMSE": 8.722,
+          "R2": -3.038
+        },
+        "B": {
+          "n": 731.0,
+          "MAE": 11.694,
+          "RMSE": 13.232,
+          "R2": -3.555
+        }
+      },
+      "XGBoost": {
+        "전체": {
+          "n": 1695.0,
+          "MAE": 8.172,
+          "RMSE": 9.743,
+          "R2": 0.883
+        },
+        "A123": {
+          "n": 309.0,
+          "MAE": 4.167,
+          "RMSE": 5.571,
+          "R2": -1.208
+        },
+        "A456": {
+          "n": 655.0,
+          "MAE": 7.351,
+          "RMSE": 8.367,
+          "R2": -2.717
+        },
+        "B": {
+          "n": 731.0,
+          "MAE": 10.602,
+          "RMSE": 12.01,
+          "R2": -2.753
+        }
+      },
+      "XGBoost Optuna": {
+        "전체": {
+          "n": 1695.0,
+          "MAE": 7.504,
+          "RMSE": 9.272,
+          "R2": 0.894
+        },
+        "A123": {
+          "n": 309.0,
+          "MAE": 3.257,
+          "RMSE": 4.099,
+          "R2": -0.195
+        },
+        "A456": {
+          "n": 655.0,
+          "MAE": 6.495,
+          "RMSE": 7.655,
+          "R2": -2.111
+        },
+        "B": {
+          "n": 731.0,
+          "MAE": 10.203,
+          "RMSE": 11.82,
+          "R2": -2.635
+        }
+      },
+      "GroupMean": {
+        "전체": {
+          "n": 1695.0,
+          "MAE": 9.157,
+          "RMSE": 10.789,
+          "R2": 0.857
+        },
+        "A123": {
+          "n": 309.0,
+          "MAE": 3.931,
+          "RMSE": 4.902,
+          "R2": -0.709
+        },
+        "A456": {
+          "n": 655.0,
+          "MAE": 7.9,
+          "RMSE": 8.851,
+          "R2": -3.158
+        },
+        "B": {
+          "n": 731.0,
+          "MAE": 12.492,
+          "RMSE": 13.768,
+          "R2": -3.931
+        }
+      }
+    }
+  },
+  "out_of_range": {
+    "USAGE_OF_BACKING_FILM_start": 0.012,
+    "USAGE_OF_DRESSER_start": 0.003,
+    "USAGE_OF_POLISHING_TABLE_start": 0.0,
+    "USAGE_OF_DRESSER_TABLE_start": 1.0,
+    "USAGE_OF_MEMBRANE_start": 0.012,
+    "USAGE_OF_PRESSURIZED_SHEET_start": 0.012
+  },
+  "psi": {
+    "USAGE_OF_DRESSER_TABLE_start": {
+      "0": 12.41,
+      "1": 12.41,
+      "2": 12.41,
+      "3": 12.41,
+      "4": 12.41,
+      "5": 12.41
+    },
+    "USAGE_OF_DRESSER_start": {
+      "0": 7.58,
+      "1": 9.18,
+      "2": 3.78,
+      "3": 9.09,
+      "4": 8.96,
+      "5": 9.49
+    },
+    "SLURRY_FLOW_LINE_C_mean": {
+      "0": 0.36,
+      "1": 0.56,
+      "2": 0.8,
+      "3": 1.49,
+      "4": 0.88,
+      "5": 2.89
+    },
+    "duration": {
+      "0": 0.5,
+      "1": 1.28,
+      "2": 0.9,
+      "3": 1.38,
+      "4": 1.09,
+      "5": 5.71
+    }
+  },
+  "weekly_mae": {
+    "XGBoost": {
+      "0": 6.24,
+      "1": 9.8,
+      "2": 7.94,
+      "3": 7.48,
+      "4": 8.7,
+      "5": 11.94
+    },
+    "GroupMean": {
+      "0": 8.49,
+      "1": 9.12,
+      "2": 9.0,
+      "3": 9.54,
+      "4": 8.84,
+      "5": 12.34
+    }
+  },
+  "stream_cover": 0.319,
+  "policy": [
+    {
+      "policy": "XGBoost 고정 (보정 없음)",
+      "every": 2,
+      "measured": 0.501,
+      "MAE": 8.283,
+      "RMSE": 9.882,
+      "over_tol": 0.689
+    },
+    {
+      "policy": "XGBoost + EWMA 보정",
+      "every": 2,
+      "measured": 0.501,
+      "MAE": 3.154,
+      "RMSE": 4.134,
+      "over_tol": 0.23
+    },
+    {
+      "policy": "그룹 평균 + EWMA 보정",
+      "every": 2,
+      "measured": 0.501,
+      "MAE": 2.773,
+      "RMSE": 3.655,
+      "over_tol": 0.167
+    },
+    {
+      "policy": "직전 계측값 그대로",
+      "every": 2,
+      "measured": 0.501,
+      "MAE": 2.798,
+      "RMSE": 3.777,
+      "over_tol": 0.161
+    },
+    {
+      "policy": "XGBoost 고정 (보정 없음)",
+      "every": 5,
+      "measured": 0.201,
+      "MAE": 8.167,
+      "RMSE": 9.715,
+      "over_tol": 0.677
+    },
+    {
+      "policy": "XGBoost + EWMA 보정",
+      "every": 5,
+      "measured": 0.201,
+      "MAE": 3.475,
+      "RMSE": 4.522,
+      "over_tol": 0.252
+    },
+    {
+      "policy": "그룹 평균 + EWMA 보정",
+      "every": 5,
+      "measured": 0.201,
+      "MAE": 3.306,
+      "RMSE": 4.265,
+      "over_tol": 0.221
+    },
+    {
+      "policy": "직전 계측값 그대로",
+      "every": 5,
+      "measured": 0.201,
+      "MAE": 3.262,
+      "RMSE": 4.288,
+      "over_tol": 0.218
+    },
+    {
+      "policy": "XGBoost 고정 (보정 없음)",
+      "every": 10,
+      "measured": 0.101,
+      "MAE": 8.172,
+      "RMSE": 9.743,
+      "over_tol": 0.678
+    },
+    {
+      "policy": "XGBoost + EWMA 보정",
+      "every": 10,
+      "measured": 0.101,
+      "MAE": 3.814,
+      "RMSE": 4.929,
+      "over_tol": 0.295
+    },
+    {
+      "policy": "그룹 평균 + EWMA 보정",
+      "every": 10,
+      "measured": 0.101,
+      "MAE": 3.765,
+      "RMSE": 4.788,
+      "over_tol": 0.295
+    },
+    {
+      "policy": "직전 계측값 그대로",
+      "every": 10,
+      "measured": 0.101,
+      "MAE": 3.778,
+      "RMSE": 4.948,
+      "over_tol": 0.277
+    },
+    {
+      "policy": "XGBoost 고정 (보정 없음)",
+      "every": 20,
+      "measured": 0.051,
+      "MAE": 8.156,
+      "RMSE": 9.724,
+      "over_tol": 0.674
+    },
+    {
+      "policy": "XGBoost + EWMA 보정",
+      "every": 20,
+      "measured": 0.051,
+      "MAE": 4.27,
+      "RMSE": 5.45,
+      "over_tol": 0.339
+    },
+    {
+      "policy": "그룹 평균 + EWMA 보정",
+      "every": 20,
+      "measured": 0.051,
+      "MAE": 4.246,
+      "RMSE": 5.497,
+      "over_tol": 0.341
+    },
+    {
+      "policy": "직전 계측값 그대로",
+      "every": 20,
+      "measured": 0.051,
+      "MAE": 4.497,
+      "RMSE": 5.784,
+      "over_tol": 0.354
+    },
+    {
+      "policy": "XGBoost 주간 재학습 + EWMA",
+      "every": 2,
+      "measured": 0.501,
+      "MAE": 2.941,
+      "RMSE": 3.872,
+      "over_tol": 0.174
+    },
+    {
+      "policy": "XGBoost 주간 재학습 + EWMA",
+      "every": 5,
+      "measured": 0.201,
+      "MAE": 3.558,
+      "RMSE": 4.663,
+      "over_tol": 0.253
+    },
+    {
+      "policy": "XGBoost 주간 재학습 + EWMA",
+      "every": 10,
+      "measured": 0.101,
+      "MAE": 4.196,
+      "RMSE": 5.482,
+      "over_tol": 0.331
+    },
+    {
+      "policy": "XGBoost 주간 재학습 + EWMA",
+      "every": 20,
+      "measured": 0.051,
+      "MAE": 4.933,
+      "RMSE": 6.334,
+      "over_tol": 0.398
+    }
+  ],
+  "ewma_sensitivity": {
+    "lam0.1_every5": 3.866,
+    "lam0.1_every20": 4.802,
+    "lam0.3_every5": 3.475,
+    "lam0.3_every20": 4.27,
+    "lam0.6_every5": 3.408,
+    "lam0.6_every20": 4.199
+  },
+  "retrain_sec": 17.7
+}
