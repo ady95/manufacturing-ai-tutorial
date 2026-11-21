@@ -1,0 +1,78 @@
+{
+  "env": {
+    "python": "3.12.9",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1"
+  },
+  "shape": [
+    1567,
+    590
+  ],
+  "fails": 104,
+  "fail_rate": 0.0664,
+  "all_pass_accuracy": 0.9336,
+  "ts_range": [
+    "2008-07-19 11:55:00",
+    "2008-10-17 06:07:00"
+  ],
+  "monthly": [
+    {
+      "month": "2008-07",
+      "n": 63,
+      "fails": 14,
+      "fail_rate": 0.2222
+    },
+    {
+      "month": "2008-08",
+      "n": 555,
+      "fails": 51,
+      "fail_rate": 0.0919
+    },
+    {
+      "month": "2008-09",
+      "n": 590,
+      "fails": 17,
+      "fail_rate": 0.0288
+    },
+    {
+      "month": "2008-10",
+      "n": 359,
+      "fails": 22,
+      "fail_rate": 0.0613
+    }
+  ],
+  "cell_missing_ratio": 0.0454,
+  "features_missing_gt": {
+    "0": 538,
+    "0.05": 52,
+    "0.2": 32,
+    "0.5": 28,
+    "0.8": 8
+  },
+  "constant_features": 116,
+  "duplicate_features": 104,
+  "duplicate_nonconstant": 0,
+  "split": {
+    "dev": {
+      "n": 1253,
+      "fails": 87,
+      "fail_rate": 0.0694,
+      "start": "2008-07-19 11:55:00",
+      "end": "2008-10-02 19:25:00"
+    },
+    "test": {
+      "n": 314,
+      "fails": 17,
+      "fail_rate": 0.0541,
+      "start": "2008-10-02 20:54:00",
+      "end": "2008-10-17 06:07:00"
+    }
+  },
+  "leakage_demo": {
+    "k": 40,
+    "leaky_mean": 0.236,
+    "leaky_std": 0.05,
+    "clean_mean": 0.186,
+    "clean_std": 0.033
+  }
+}

@@ -1,0 +1,379 @@
+{
+  "env": {
+    "python": "3.12.9",
+    "sklearn": "1.9.1",
+    "xgboost": "3.4.1",
+    "shap": "0.54.1"
+  },
+  "shap_top10_xgb": {
+    "f059": 0.437610000371933,
+    "f460": 0.10784000158309937,
+    "f033": 0.07678999751806259,
+    "f519": 0.061799999326467514,
+    "f290": 0.05291999876499176,
+    "f247": 0.051180001348257065,
+    "f445": 0.050039999186992645,
+    "f031": 0.04732999950647354,
+    "f000": 0.044509999454021454,
+    "f019": 0.03985000029206276
+  },
+  "lr_top10_coef": {
+    "f059": 0.7673,
+    "f021": 0.5891,
+    "f026": 0.4944,
+    "f064": 0.4829,
+    "f196": -0.407,
+    "f348": 0.4044,
+    "f334": -0.3638,
+    "f460": 0.3544,
+    "f129": 0.3238,
+    "f280": -0.3181
+  },
+  "top10_overlap": [
+    "f059",
+    "f460"
+  ],
+  "fold_top10_jaccard": [
+    0.333,
+    0.176,
+    0.25
+  ],
+  "fold_top10_in_all": [
+    "f000",
+    "f031",
+    "f059"
+  ],
+  "calibration_oof": [
+    {
+      "model": "LR+KBest",
+      "oof_mean_pred": 0.3667,
+      "oof_fail_rate": 0.0372,
+      "oof_brier": 0.2011
+    },
+    {
+      "model": "XGBoost(Optuna)",
+      "oof_mean_pred": 0.2038,
+      "oof_fail_rate": 0.0372,
+      "oof_brier": 0.0679
+    }
+  ],
+  "platt_test": [
+    {
+      "model": "LR+KBest",
+      "test_brier_raw": 0.1272,
+      "test_brier_platt": 0.0514,
+      "test_mean_raw": 0.2665,
+      "test_mean_platt": 0.0304,
+      "test_fail_rate": 0.0541,
+      "test_ap_raw": 0.1351,
+      "test_ap_platt": 0.1351
+    },
+    {
+      "model": "XGBoost(Optuna)",
+      "test_brier_raw": 0.0898,
+      "test_brier_platt": 0.0513,
+      "test_mean_raw": 0.2342,
+      "test_mean_platt": 0.0427,
+      "test_fail_rate": 0.0541,
+      "test_ap_raw": 0.0699,
+      "test_ap_platt": 0.0699
+    }
+  ],
+  "cost_assumption": {
+    "fn": 10,
+    "fp": 1
+  },
+  "baselines": {
+    "no alarm (cost)": 170,
+    "alarm all (cost)": 297
+  },
+  "threshold_table": [
+    {
+      "model": "LR+KBest",
+      "rule": "0.5 (default)",
+      "threshold": 0.5,
+      "tp": 4,
+      "fp": 40,
+      "fn": 13,
+      "tn": 257,
+      "recall": 0.2353,
+      "precision": 0.0909,
+      "alarms_per_100": 14.0127,
+      "test_cost": 170
+    },
+    {
+      "model": "LR+KBest",
+      "rule": "max F1 (OOF)",
+      "threshold": 0.819,
+      "tp": 2,
+      "fp": 3,
+      "fn": 15,
+      "tn": 294,
+      "recall": 0.1176,
+      "precision": 0.4,
+      "alarms_per_100": 1.5924,
+      "test_cost": 153
+    },
+    {
+      "model": "LR+KBest",
+      "rule": "min cost 10:1 (OOF)",
+      "threshold": 0.993,
+      "tp": 0,
+      "fp": 1,
+      "fn": 17,
+      "tn": 296,
+      "recall": 0.0,
+      "precision": 0.0,
+      "alarms_per_100": 0.3185,
+      "test_cost": 171
+    },
+    {
+      "model": "XGBoost(Optuna)",
+      "rule": "0.5 (default)",
+      "threshold": 0.5,
+      "tp": 0,
+      "fp": 3,
+      "fn": 17,
+      "tn": 294,
+      "recall": 0.0,
+      "precision": 0.0,
+      "alarms_per_100": 0.9554,
+      "test_cost": 173
+    },
+    {
+      "model": "XGBoost(Optuna)",
+      "rule": "max F1 (OOF)",
+      "threshold": 0.5239,
+      "tp": 0,
+      "fp": 2,
+      "fn": 17,
+      "tn": 295,
+      "recall": 0.0,
+      "precision": 0.0,
+      "alarms_per_100": 0.6369,
+      "test_cost": 172
+    },
+    {
+      "model": "XGBoost(Optuna)",
+      "rule": "min cost 10:1 (OOF)",
+      "threshold": 0.5239,
+      "tp": 0,
+      "fp": 2,
+      "fn": 17,
+      "tn": 295,
+      "recall": 0.0,
+      "precision": 0.0,
+      "alarms_per_100": 0.6369,
+      "test_cost": 172
+    }
+  ],
+  "sensitivity": [
+    {
+      "fn_cost": 2,
+      "model": "LR+KBest",
+      "threshold": 0.993,
+      "tp": 0,
+      "fp": 1,
+      "fn": 17,
+      "tn": 296,
+      "test_cost": 35,
+      "no_alarm": 34,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 2,
+      "model": "XGBoost(Optuna)",
+      "threshold": 0.5239,
+      "tp": 0,
+      "fp": 2,
+      "fn": 17,
+      "tn": 295,
+      "test_cost": 36,
+      "no_alarm": 34,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 5,
+      "model": "LR+KBest",
+      "threshold": 0.993,
+      "tp": 0,
+      "fp": 1,
+      "fn": 17,
+      "tn": 296,
+      "test_cost": 86,
+      "no_alarm": 85,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 5,
+      "model": "XGBoost(Optuna)",
+      "threshold": 0.5239,
+      "tp": 0,
+      "fp": 2,
+      "fn": 17,
+      "tn": 295,
+      "test_cost": 87,
+      "no_alarm": 85,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 10,
+      "model": "LR+KBest",
+      "threshold": 0.993,
+      "tp": 0,
+      "fp": 1,
+      "fn": 17,
+      "tn": 296,
+      "test_cost": 171,
+      "no_alarm": 170,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 10,
+      "model": "XGBoost(Optuna)",
+      "threshold": 0.5239,
+      "tp": 0,
+      "fp": 2,
+      "fn": 17,
+      "tn": 295,
+      "test_cost": 172,
+      "no_alarm": 170,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 20,
+      "model": "LR+KBest",
+      "threshold": 0.6736,
+      "tp": 3,
+      "fp": 13,
+      "fn": 14,
+      "tn": 284,
+      "test_cost": 293,
+      "no_alarm": 340,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 20,
+      "model": "XGBoost(Optuna)",
+      "threshold": 0.5239,
+      "tp": 0,
+      "fp": 2,
+      "fn": 17,
+      "tn": 295,
+      "test_cost": 342,
+      "no_alarm": 340,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 50,
+      "model": "LR+KBest",
+      "threshold": 0.099,
+      "tp": 15,
+      "fp": 227,
+      "fn": 2,
+      "tn": 70,
+      "test_cost": 327,
+      "no_alarm": 850,
+      "alarm_all": 297
+    },
+    {
+      "fn_cost": 50,
+      "model": "XGBoost(Optuna)",
+      "threshold": 0.1542,
+      "tp": 16,
+      "fp": 234,
+      "fn": 1,
+      "tn": 63,
+      "test_cost": 284,
+      "no_alarm": 850,
+      "alarm_all": 297
+    }
+  ],
+  "test_fail_ranks_lr": [
+    {
+      "rank_of_314": 2,
+      "proba": 0.9699,
+      "caught": false
+    },
+    {
+      "rank_of_314": 5,
+      "proba": 0.8312,
+      "caught": false
+    },
+    {
+      "rank_of_314": 12,
+      "proba": 0.7437,
+      "caught": false
+    },
+    {
+      "rank_of_314": 24,
+      "proba": 0.5994,
+      "caught": false
+    },
+    {
+      "rank_of_314": 55,
+      "proba": 0.4438,
+      "caught": false
+    },
+    {
+      "rank_of_314": 56,
+      "proba": 0.4416,
+      "caught": false
+    },
+    {
+      "rank_of_314": 83,
+      "proba": 0.3691,
+      "caught": false
+    },
+    {
+      "rank_of_314": 93,
+      "proba": 0.338,
+      "caught": false
+    },
+    {
+      "rank_of_314": 100,
+      "proba": 0.3259,
+      "caught": false
+    },
+    {
+      "rank_of_314": 154,
+      "proba": 0.2203,
+      "caught": false
+    },
+    {
+      "rank_of_314": 168,
+      "proba": 0.2082,
+      "caught": false
+    },
+    {
+      "rank_of_314": 180,
+      "proba": 0.1844,
+      "caught": false
+    },
+    {
+      "rank_of_314": 181,
+      "proba": 0.1831,
+      "caught": false
+    },
+    {
+      "rank_of_314": 192,
+      "proba": 0.1607,
+      "caught": false
+    },
+    {
+      "rank_of_314": 242,
+      "proba": 0.0994,
+      "caught": false
+    },
+    {
+      "rank_of_314": 256,
+      "proba": 0.0809,
+      "caught": false
+    },
+    {
+      "rank_of_314": 312,
+      "proba": 0.0027,
+      "caught": false
+    }
+  ]
+}
