@@ -1,0 +1,141 @@
+{
+  "device": "cuda",
+  "torch": "2.14.1+cu130",
+  "seq_len": 128,
+  "n_channels": 19,
+  "n_static": 5,
+  "inner_split": [
+    1679,
+    298
+  ],
+  "receptive_field": 125,
+  "params": {
+    "LSTM": 59585,
+    "TCN": 34977
+  },
+  "deep_runs": {
+    "LSTM": [
+      {
+        "seed": 42,
+        "epochs": 40,
+        "train_sec": 6.034,
+        "infer_sec": 0.007,
+        "MAE": 3.276,
+        "RMSE": 4.28
+      },
+      {
+        "seed": 43,
+        "epochs": 45,
+        "train_sec": 4.82,
+        "infer_sec": 0.005,
+        "MAE": 3.219,
+        "RMSE": 4.188
+      },
+      {
+        "seed": 44,
+        "epochs": 34,
+        "train_sec": 3.529,
+        "infer_sec": 0.005,
+        "MAE": 3.181,
+        "RMSE": 4.11
+      }
+    ],
+    "TCN": [
+      {
+        "seed": 42,
+        "epochs": 63,
+        "train_sec": 13.115,
+        "infer_sec": 0.008,
+        "MAE": 2.941,
+        "RMSE": 3.86
+      },
+      {
+        "seed": 43,
+        "epochs": 48,
+        "train_sec": 9.791,
+        "infer_sec": 0.007,
+        "MAE": 2.92,
+        "RMSE": 3.799
+      },
+      {
+        "seed": 44,
+        "epochs": 65,
+        "train_sec": 12.791,
+        "infer_sec": 0.007,
+        "MAE": 3.015,
+        "RMSE": 3.94
+      }
+    ]
+  },
+  "table": {
+    "RandomForest": {
+      "MAE": 2.498,
+      "MAE_sd": 0.0,
+      "RMSE": 3.354,
+      "R2_A123": 0.418,
+      "R2_A456": 0.8,
+      "R2_B": 0.822,
+      "train_sec": 36.393,
+      "infer_sec": 0.185
+    },
+    "XGBoost": {
+      "MAE": 2.595,
+      "MAE_sd": 0.0,
+      "RMSE": 3.495,
+      "R2_A123": 0.202,
+      "R2_A456": 0.729,
+      "R2_B": 0.848,
+      "train_sec": 1.973,
+      "infer_sec": 0.015
+    },
+    "시각 kNN": {
+      "MAE": 2.127,
+      "MAE_sd": 0.0,
+      "RMSE": 2.858,
+      "R2_A123": 0.45,
+      "R2_A456": 0.845,
+      "R2_B": 0.886,
+      "train_sec": 0.0,
+      "infer_sec": 0.0
+    },
+    "GroupMean": {
+      "MAE": 5.827,
+      "MAE_sd": 0.0,
+      "RMSE": 7.454,
+      "R2_A123": -0.011,
+      "R2_A456": -0.014,
+      "R2_B": -0.003,
+      "train_sec": 0.0,
+      "infer_sec": 0.0
+    },
+    "LSTM": {
+      "MAE": 3.225,
+      "MAE_sd": 0.039,
+      "RMSE": 4.193,
+      "R2_A123": 0.274,
+      "R2_A456": 0.63,
+      "R2_B": 0.739,
+      "train_sec": 4.794,
+      "infer_sec": 0.006
+    },
+    "TCN": {
+      "MAE": 2.959,
+      "MAE_sd": 0.041,
+      "RMSE": 3.866,
+      "R2_A123": 0.131,
+      "R2_A456": 0.667,
+      "R2_B": 0.806,
+      "train_sec": 11.899,
+      "infer_sec": 0.007
+    }
+  },
+  "env": {
+    "gpu": "Tesla T4, 15360 MiB",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "torch": "2.14.1+cu130",
+    "date": "2026-11"
+  }
+}
