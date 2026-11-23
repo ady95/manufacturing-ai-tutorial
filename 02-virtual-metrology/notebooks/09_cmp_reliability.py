@@ -23,6 +23,7 @@ from pathlib import Path
 if "google.colab" in sys.modules and not Path("src").exists():
     !git clone -q https://github.com/ady95/manufacturing-ai-tutorial.git
     %cd manufacturing-ai-tutorial/02-virtual-metrology
+    !pip install -q optuna
 
 ROOT = Path.cwd() if (Path.cwd() / "src").exists() else Path.cwd().parent
 os.chdir(ROOT)
