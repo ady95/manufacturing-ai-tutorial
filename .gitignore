@@ -31,3 +31,4 @@ Thumbs.db
 .vscode/
 .idea/
 *.npy
+03-defect-inspection/wafermap/results/12_runs/

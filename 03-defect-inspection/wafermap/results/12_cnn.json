@@ -1,0 +1,590 @@
+{
+  "env": {
+    "python": "3.12.9",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1",
+    "opencv": "5.1.0",
+    "torch": "2.14.1+cu126",
+    "torchvision": "0.29.1+cu126",
+    "device": "NVIDIA GeForce GTX 1080"
+  },
+  "device": "cuda",
+  "split": {
+    "train": 43461,
+    "val": 10894,
+    "test": 118595
+  },
+  "class_weight": {
+    "Center": 0.4230000078678131,
+    "Donut": 1.2300000190734863,
+    "Edge-Loc": 0.5099999904632568,
+    "Edge-Ring": 0.26899999380111694,
+    "Loc": 0.6230000257492065,
+    "Near-full": 3.6630001068115234,
+    "Random": 1.0099999904632568,
+    "Scratch": 1.11899995803833,
+    "none": 0.15399999916553497
+  },
+  "params": {
+    "SmallCNN": 289065,
+    "ResNet18": 11181129
+  },
+  "resnet_uses_class_weight": false,
+  "runs": {
+    "CNN": [
+      {
+        "seed": 42,
+        "epochs": 13,
+        "best_epoch": 7,
+        "train_sec": 204.3,
+        "val_macro_f1": 0.8026,
+        "test_macro_f1": 0.5829,
+        "test_accuracy": 0.9577,
+        "test_nodup_macro_f1": 0.5805,
+        "infer_sec": 11.42,
+        "per_class_f1": {
+          "Center": 0.339,
+          "Donut": 0.356,
+          "Edge-Loc": 0.622,
+          "Edge-Ring": 0.75,
+          "Loc": 0.471,
+          "Near-full": 0.732,
+          "Random": 0.649,
+          "Scratch": 0.343,
+          "none": 0.983
+        }
+      },
+      {
+        "seed": 43,
+        "epochs": 20,
+        "best_epoch": 14,
+        "train_sec": 305.1,
+        "val_macro_f1": 0.7853,
+        "test_macro_f1": 0.6707,
+        "test_accuracy": 0.9583,
+        "test_nodup_macro_f1": 0.6695,
+        "infer_sec": 11.03,
+        "per_class_f1": {
+          "Center": 0.509,
+          "Donut": 0.611,
+          "Edge-Loc": 0.627,
+          "Edge-Ring": 0.728,
+          "Loc": 0.533,
+          "Near-full": 0.909,
+          "Random": 0.675,
+          "Scratch": 0.461,
+          "none": 0.983
+        }
+      },
+      {
+        "seed": 44,
+        "epochs": 15,
+        "best_epoch": 9,
+        "train_sec": 236.1,
+        "val_macro_f1": 0.8467,
+        "test_macro_f1": 0.6479,
+        "test_accuracy": 0.9603,
+        "test_nodup_macro_f1": 0.6464,
+        "infer_sec": 11.2,
+        "per_class_f1": {
+          "Center": 0.459,
+          "Donut": 0.46,
+          "Edge-Loc": 0.645,
+          "Edge-Ring": 0.772,
+          "Loc": 0.518,
+          "Near-full": 0.907,
+          "Random": 0.723,
+          "Scratch": 0.362,
+          "none": 0.984
+        }
+      }
+    ],
+    "CNN (클래스 가중치)": [
+      {
+        "seed": 42,
+        "epochs": 23,
+        "best_epoch": 17,
+        "train_sec": 358.8,
+        "val_macro_f1": 0.8525,
+        "test_macro_f1": 0.6719,
+        "test_accuracy": 0.9578,
+        "test_nodup_macro_f1": 0.6697,
+        "infer_sec": 11.25,
+        "per_class_f1": {
+          "Center": 0.381,
+          "Donut": 0.625,
+          "Edge-Loc": 0.638,
+          "Edge-Ring": 0.737,
+          "Loc": 0.522,
+          "Near-full": 0.892,
+          "Random": 0.704,
+          "Scratch": 0.566,
+          "none": 0.983
+        }
+      },
+      {
+        "seed": 43,
+        "epochs": 15,
+        "best_epoch": 9,
+        "train_sec": 239.6,
+        "val_macro_f1": 0.7467,
+        "test_macro_f1": 0.6257,
+        "test_accuracy": 0.956,
+        "test_nodup_macro_f1": 0.6238,
+        "infer_sec": 11.34,
+        "per_class_f1": {
+          "Center": 0.419,
+          "Donut": 0.517,
+          "Edge-Loc": 0.566,
+          "Edge-Ring": 0.706,
+          "Loc": 0.382,
+          "Near-full": 0.92,
+          "Random": 0.649,
+          "Scratch": 0.493,
+          "none": 0.982
+        }
+      },
+      {
+        "seed": 44,
+        "epochs": 13,
+        "best_epoch": 7,
+        "train_sec": 209.8,
+        "val_macro_f1": 0.6751,
+        "test_macro_f1": 0.5925,
+        "test_accuracy": 0.947,
+        "test_nodup_macro_f1": 0.5897,
+        "infer_sec": 11.8,
+        "per_class_f1": {
+          "Center": 0.449,
+          "Donut": 0.402,
+          "Edge-Loc": 0.536,
+          "Edge-Ring": 0.572,
+          "Loc": 0.433,
+          "Near-full": 0.86,
+          "Random": 0.69,
+          "Scratch": 0.412,
+          "none": 0.98
+        }
+      }
+    ],
+    "ResNet18 (사전학습)": [
+      {
+        "seed": 42,
+        "epochs": 11,
+        "best_epoch": 5,
+        "train_sec": 143.9,
+        "val_macro_f1": 0.7454,
+        "test_macro_f1": 0.6832,
+        "test_accuracy": 0.955,
+        "test_nodup_macro_f1": 0.6812,
+        "infer_sec": 9.26,
+        "per_class_f1": {
+          "Center": 0.557,
+          "Donut": 0.626,
+          "Edge-Loc": 0.617,
+          "Edge-Ring": 0.792,
+          "Loc": 0.472,
+          "Near-full": 0.888,
+          "Random": 0.667,
+          "Scratch": 0.55,
+          "none": 0.98
+        }
+      },
+      {
+        "seed": 43,
+        "epochs": 8,
+        "best_epoch": 2,
+        "train_sec": 98.0,
+        "val_macro_f1": 0.7415,
+        "test_macro_f1": 0.6779,
+        "test_accuracy": 0.9494,
+        "test_nodup_macro_f1": 0.6762,
+        "infer_sec": 8.64,
+        "per_class_f1": {
+          "Center": 0.523,
+          "Donut": 0.583,
+          "Edge-Loc": 0.572,
+          "Edge-Ring": 0.764,
+          "Loc": 0.56,
+          "Near-full": 0.926,
+          "Random": 0.723,
+          "Scratch": 0.474,
+          "none": 0.978
+        }
+      },
+      {
+        "seed": 44,
+        "epochs": 11,
+        "best_epoch": 5,
+        "train_sec": 136.7,
+        "val_macro_f1": 0.8495,
+        "test_macro_f1": 0.6529,
+        "test_accuracy": 0.962,
+        "test_nodup_macro_f1": 0.6512,
+        "infer_sec": 8.53,
+        "per_class_f1": {
+          "Center": 0.525,
+          "Donut": 0.595,
+          "Edge-Loc": 0.593,
+          "Edge-Ring": 0.827,
+          "Loc": 0.494,
+          "Near-full": 0.78,
+          "Random": 0.657,
+          "Scratch": 0.422,
+          "none": 0.983
+        }
+      }
+    ],
+    "ResNet18 (무작위 초기화)": [
+      {
+        "seed": 42,
+        "epochs": 9,
+        "best_epoch": 3,
+        "train_sec": 110.9,
+        "val_macro_f1": 0.7369,
+        "test_macro_f1": 0.5882,
+        "test_accuracy": 0.9555,
+        "test_nodup_macro_f1": 0.5874,
+        "infer_sec": 8.97,
+        "per_class_f1": {
+          "Center": 0.514,
+          "Donut": 0.649,
+          "Edge-Loc": 0.616,
+          "Edge-Ring": 0.748,
+          "Loc": 0.514,
+          "Near-full": 0.795,
+          "Random": 0.376,
+          "Scratch": 0.101,
+          "none": 0.981
+        }
+      },
+      {
+        "seed": 43,
+        "epochs": 16,
+        "best_epoch": 10,
+        "train_sec": 204.1,
+        "val_macro_f1": 0.8723,
+        "test_macro_f1": 0.7012,
+        "test_accuracy": 0.9637,
+        "test_nodup_macro_f1": 0.698,
+        "infer_sec": 8.57,
+        "per_class_f1": {
+          "Center": 0.599,
+          "Donut": 0.602,
+          "Edge-Loc": 0.669,
+          "Edge-Ring": 0.815,
+          "Loc": 0.574,
+          "Near-full": 0.903,
+          "Random": 0.733,
+          "Scratch": 0.432,
+          "none": 0.984
+        }
+      },
+      {
+        "seed": 44,
+        "epochs": 17,
+        "best_epoch": 11,
+        "train_sec": 202.6,
+        "val_macro_f1": 0.8595,
+        "test_macro_f1": 0.688,
+        "test_accuracy": 0.9628,
+        "test_nodup_macro_f1": 0.6876,
+        "infer_sec": 8.24,
+        "per_class_f1": {
+          "Center": 0.572,
+          "Donut": 0.623,
+          "Edge-Loc": 0.684,
+          "Edge-Ring": 0.804,
+          "Loc": 0.488,
+          "Near-full": 0.914,
+          "Random": 0.681,
+          "Scratch": 0.444,
+          "none": 0.984
+        }
+      }
+    ]
+  },
+  "table": [
+    {
+      "model": "다수 클래스(none)",
+      "val": NaN,
+      "test": 0.1073,
+      "sd": 0.0,
+      "acc": 0.9334,
+      "train_sec": NaN,
+      "nodup": NaN,
+      "infer_ms_per_1k": NaN
+    },
+    {
+      "model": "OpenCV 특징 + RF",
+      "val": 0.5743,
+      "test": 0.569,
+      "sd": 0.0,
+      "acc": 0.9327,
+      "train_sec": 7.3,
+      "nodup": NaN,
+      "infer_ms_per_1k": NaN
+    },
+    {
+      "model": "CNN",
+      "val": 0.8115,
+      "test": 0.6338,
+      "sd": 0.0372,
+      "acc": 0.9588,
+      "train_sec": 248.5,
+      "nodup": 0.6321,
+      "infer_ms_per_1k": 94.5796
+    },
+    {
+      "model": "CNN (클래스 가중치)",
+      "val": 0.7581,
+      "test": 0.63,
+      "sd": 0.0326,
+      "acc": 0.9536,
+      "train_sec": 269.4,
+      "nodup": 0.6277,
+      "infer_ms_per_1k": 96.6595
+    },
+    {
+      "model": "ResNet18 (사전학습)",
+      "val": 0.7788,
+      "test": 0.6713,
+      "sd": 0.0132,
+      "acc": 0.9555,
+      "train_sec": 126.2,
+      "nodup": 0.6695,
+      "infer_ms_per_1k": 74.2864
+    },
+    {
+      "model": "ResNet18 (무작위 초기화)",
+      "val": 0.8229,
+      "test": 0.6591,
+      "sd": 0.0504,
+      "acc": 0.9607,
+      "train_sec": 172.5333,
+      "nodup": 0.6577,
+      "infer_ms_per_1k": 72.4595
+    }
+  ],
+  "chosen": "ResNet18 (무작위 초기화)",
+  "ensemble": {
+    "accuracy": 0.9657,
+    "macro_f1": 0.6968,
+    "weighted_f1": 0.9622,
+    "per_class": {
+      "Center": {
+        "precision": 0.683,
+        "recall": 0.478,
+        "f1": 0.563,
+        "support": 832
+      },
+      "Donut": {
+        "precision": 0.837,
+        "recall": 0.562,
+        "f1": 0.672,
+        "support": 146
+      },
+      "Edge-Loc": {
+        "precision": 0.724,
+        "recall": 0.687,
+        "f1": 0.705,
+        "support": 2772
+      },
+      "Edge-Ring": {
+        "precision": 0.858,
+        "recall": 0.799,
+        "f1": 0.828,
+        "support": 1126
+      },
+      "Loc": {
+        "precision": 0.747,
+        "recall": 0.452,
+        "f1": 0.563,
+        "support": 1973
+      },
+      "Near-full": {
+        "precision": 0.809,
+        "recall": 0.979,
+        "f1": 0.886,
+        "support": 95
+      },
+      "Random": {
+        "precision": 0.874,
+        "recall": 0.595,
+        "f1": 0.708,
+        "support": 257
+      },
+      "Scratch": {
+        "precision": 0.838,
+        "recall": 0.231,
+        "f1": 0.362,
+        "support": 693
+      },
+      "none": {
+        "precision": 0.977,
+        "recall": 0.993,
+        "f1": 0.985,
+        "support": 110701
+      }
+    }
+  },
+  "top_confusions": [
+    [
+      "Loc",
+      "none",
+      820
+    ],
+    [
+      "Edge-Loc",
+      "none",
+      757
+    ],
+    [
+      "none",
+      "Edge-Loc",
+      447
+    ],
+    [
+      "Center",
+      "none",
+      419
+    ],
+    [
+      "Scratch",
+      "none",
+      410
+    ],
+    [
+      "Loc",
+      "Edge-Loc",
+      158
+    ],
+    [
+      "Edge-Ring",
+      "none",
+      150
+    ],
+    [
+      "none",
+      "Loc",
+      111
+    ],
+    [
+      "none",
+      "Edge-Ring",
+      104
+    ],
+    [
+      "Scratch",
+      "Loc",
+      102
+    ]
+  ],
+  "wrong": 4064,
+  "high_conf_wrong": 837,
+  "missed_defects": 2611,
+  "false_alarms": 750,
+  "conflict_in_test": 14,
+  "confusion_matrix": [
+    [
+      398,
+      2,
+      4,
+      2,
+      6,
+      1,
+      0,
+      0,
+      419
+    ],
+    [
+      17,
+      82,
+      1,
+      0,
+      20,
+      1,
+      4,
+      1,
+      20
+    ],
+    [
+      3,
+      0,
+      1903,
+      41,
+      54,
+      3,
+      8,
+      3,
+      757
+    ],
+    [
+      0,
+      0,
+      74,
+      900,
+      0,
+      0,
+      1,
+      1,
+      150
+    ],
+    [
+      81,
+      8,
+      158,
+      1,
+      891,
+      2,
+      3,
+      9,
+      820
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      93,
+      2,
+      0,
+      0
+    ],
+    [
+      18,
+      2,
+      25,
+      0,
+      9,
+      15,
+      153,
+      0,
+      35
+    ],
+    [
+      0,
+      3,
+      17,
+      1,
+      102,
+      0,
+      0,
+      160,
+      410
+    ],
+    [
+      66,
+      1,
+      447,
+      104,
+      111,
+      0,
+      4,
+      17,
+      109951
+    ]
+  ]
+}

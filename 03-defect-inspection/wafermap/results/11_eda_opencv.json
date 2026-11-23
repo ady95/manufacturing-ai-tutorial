@@ -1,0 +1,335 @@
+{
+  "env": {
+    "python": "3.12.9",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1",
+    "opencv": "5.1.0",
+    "torch": "2.14.1+cu126",
+    "torchvision": "0.29.1+cu126",
+    "device": "NVIDIA GeForce GTX 1080"
+  },
+  "n_raw": 172950,
+  "class_counts": {
+    "Center": 4294,
+    "Donut": 555,
+    "Edge-Loc": 5189,
+    "Edge-Ring": 9680,
+    "Loc": 3593,
+    "Near-full": 149,
+    "Random": 866,
+    "Scratch": 1193,
+    "none": 147431
+  },
+  "split_counts": {
+    "Test": {
+      "Center": 832,
+      "Donut": 146,
+      "Edge-Loc": 2772,
+      "Edge-Ring": 1126,
+      "Loc": 1973,
+      "Near-full": 95,
+      "Random": 257,
+      "Scratch": 693,
+      "none": 110701
+    },
+    "Training": {
+      "Center": 3462,
+      "Donut": 409,
+      "Edge-Loc": 2417,
+      "Edge-Ring": 8554,
+      "Loc": 1620,
+      "Near-full": 54,
+      "Random": 609,
+      "Scratch": 500,
+      "none": 36730
+    }
+  },
+  "split_pct": {
+    "Test": {
+      "Center": 0.7,
+      "Donut": 0.12,
+      "Edge-Loc": 2.34,
+      "Edge-Ring": 0.95,
+      "Loc": 1.66,
+      "Near-full": 0.08,
+      "Random": 0.22,
+      "Scratch": 0.58,
+      "none": 93.34
+    },
+    "Training": {
+      "Center": 6.37,
+      "Donut": 0.75,
+      "Edge-Loc": 4.45,
+      "Edge-Ring": 15.74,
+      "Loc": 2.98,
+      "Near-full": 0.1,
+      "Random": 1.12,
+      "Scratch": 0.92,
+      "none": 67.57
+    }
+  },
+  "n_shapes": 346,
+  "size_by_class": {
+    "Center": {
+      "H": 25.0,
+      "W": 27.0
+    },
+    "Donut": {
+      "H": 41.0,
+      "W": 42.0
+    },
+    "Edge-Loc": {
+      "H": 36.0,
+      "W": 34.0
+    },
+    "Edge-Ring": {
+      "H": 53.0,
+      "W": 52.0
+    },
+    "Loc": {
+      "H": 35.0,
+      "W": 34.0
+    },
+    "Near-full": {
+      "H": 33.0,
+      "W": 29.0
+    },
+    "Random": {
+      "H": 35.0,
+      "W": 38.0
+    },
+    "Scratch": {
+      "H": 41.0,
+      "W": 38.0
+    },
+    "none": {
+      "H": 33.0,
+      "W": 31.0
+    }
+  },
+  "dev": {
+    "train": 43461,
+    "val": 10894,
+    "test": 118595,
+    "val_lot_start": 44930
+  },
+  "dup_test": 3158,
+  "conflict_labels": 14,
+  "shortcut_size_only": {
+    "무작위 분리": {
+      "accuracy": 0.9103,
+      "macro_f1": 0.3461
+    },
+    "공식 분리": {
+      "accuracy": 0.2905,
+      "macro_f1": 0.0659
+    }
+  },
+  "feature_sec": 100.6,
+  "baselines": {
+    "다수 클래스(none)": {
+      "accuracy": 0.9334,
+      "macro_f1": 0.1073,
+      "weighted_f1": 0.9013,
+      "per_class": {
+        "Center": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 832
+        },
+        "Donut": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 146
+        },
+        "Edge-Loc": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2772
+        },
+        "Edge-Ring": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1126
+        },
+        "Loc": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1973
+        },
+        "Near-full": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 95
+        },
+        "Random": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 257
+        },
+        "Scratch": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 693
+        },
+        "none": {
+          "precision": 0.933,
+          "recall": 1.0,
+          "f1": 0.966,
+          "support": 110701
+        }
+      }
+    },
+    "OpenCV 특징 + RF": {
+      "accuracy": 0.9327,
+      "macro_f1": 0.569,
+      "weighted_f1": 0.9343,
+      "per_class": {
+        "Center": {
+          "precision": 0.274,
+          "recall": 0.493,
+          "f1": 0.352,
+          "support": 832
+        },
+        "Donut": {
+          "precision": 0.75,
+          "recall": 0.534,
+          "f1": 0.624,
+          "support": 146
+        },
+        "Edge-Loc": {
+          "precision": 0.471,
+          "recall": 0.628,
+          "f1": 0.538,
+          "support": 2772
+        },
+        "Edge-Ring": {
+          "precision": 0.406,
+          "recall": 0.671,
+          "f1": 0.506,
+          "support": 1126
+        },
+        "Loc": {
+          "precision": 0.482,
+          "recall": 0.429,
+          "f1": 0.454,
+          "support": 1973
+        },
+        "Near-full": {
+          "precision": 0.968,
+          "recall": 0.968,
+          "f1": 0.968,
+          "support": 95
+        },
+        "Random": {
+          "precision": 0.847,
+          "recall": 0.584,
+          "f1": 0.691,
+          "support": 257
+        },
+        "Scratch": {
+          "precision": 0.226,
+          "recall": 0.01,
+          "f1": 0.019,
+          "support": 693
+        },
+        "none": {
+          "precision": 0.974,
+          "recall": 0.962,
+          "f1": 0.968,
+          "support": 110701
+        }
+      },
+      "val_macro_f1": 0.5743,
+      "test_nodup_macro_f1": 0.5644,
+      "fit_sec": 7.3,
+      "predict_sec": 1.17
+    },
+    "OpenCV 특징 + RF (균형 가중치)": {
+      "accuracy": 0.9298,
+      "macro_f1": 0.5752,
+      "weighted_f1": 0.9325,
+      "per_class": {
+        "Center": {
+          "precision": 0.323,
+          "recall": 0.537,
+          "f1": 0.404,
+          "support": 832
+        },
+        "Donut": {
+          "precision": 0.695,
+          "recall": 0.562,
+          "f1": 0.621,
+          "support": 146
+        },
+        "Edge-Loc": {
+          "precision": 0.444,
+          "recall": 0.636,
+          "f1": 0.523,
+          "support": 2772
+        },
+        "Edge-Ring": {
+          "precision": 0.405,
+          "recall": 0.638,
+          "f1": 0.495,
+          "support": 1126
+        },
+        "Loc": {
+          "precision": 0.412,
+          "recall": 0.456,
+          "f1": 0.433,
+          "support": 1973
+        },
+        "Near-full": {
+          "precision": 0.969,
+          "recall": 0.979,
+          "f1": 0.974,
+          "support": 95
+        },
+        "Random": {
+          "precision": 0.81,
+          "recall": 0.63,
+          "f1": 0.709,
+          "support": 257
+        },
+        "Scratch": {
+          "precision": 0.613,
+          "recall": 0.027,
+          "f1": 0.052,
+          "support": 693
+        },
+        "none": {
+          "precision": 0.975,
+          "recall": 0.958,
+          "f1": 0.967,
+          "support": 110701
+        }
+      },
+      "val_macro_f1": 0.5386,
+      "test_nodup_macro_f1": 0.5684,
+      "fit_sec": 7.5,
+      "predict_sec": 1.19
+    }
+  },
+  "rf_importance_top": {
+    "edge_vs_center": 0.1615,
+    "largest_area": 0.1271,
+    "ring0": 0.0796,
+    "ring4": 0.0768,
+    "largest_elong": 0.0733,
+    "ring3": 0.0686,
+    "largest_r": 0.0684,
+    "ring2": 0.0544,
+    "ring1": 0.0414,
+    "clean_ratio": 0.0357
+  }
+}

@@ -1,0 +1,10 @@
+# 책 실측에 사용한 버전 (2026-11). Colab 기본 버전과 다르면 결과가 조금 달라질 수 있습니다.
+numpy==2.5.5
+pandas==3.1.1
+scikit-learn==1.9.1
+opencv-python-headless==5.1.0
+matplotlib==3.11.2
+kaggle
+# 12장 CNN (책 수치는 GTX 1080, CUDA 12.6 빌드로 측정. Colab GPU 런타임에는 기본 설치된 torch를 그대로 쓰면 됩니다)
+torch==2.14.1
+torchvision==0.29.1
