@@ -1,0 +1,9 @@
+# 책 실측에 사용한 버전 (2026-11). Colab에서는 기본 설치된 torch를 그대로 쓰고 anomalib만 버전을 고정해 설치합니다.
+anomalib==2.7.1
+numpy==2.5.5
+pandas==3.1.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+# 13장 실측: GTX 1080, CUDA 12.6 빌드
+torch==2.14.1
+torchvision==0.29.1
