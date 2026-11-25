@@ -36,3 +36,7 @@ Thumbs.db
 *.npz
 03-defect-inspection/anomaly-detection/work/
 03-defect-inspection/anomaly-detection/results/13_runs/
+03-defect-inspection/inspection-system/work/
+03-defect-inspection/inspection-system/runs/
+03-defect-inspection/inspection-system/results/14_runs/
+03-defect-inspection/inspection-system/results/review_log.csv

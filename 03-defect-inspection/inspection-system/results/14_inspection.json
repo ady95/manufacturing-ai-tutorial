@@ -1,0 +1,599 @@
+{
+  "env": {
+    "python": "3.12.9",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1",
+    "opencv": "5.1.0",
+    "torch": "2.14.1+cu126",
+    "device": "NVIDIA GeForce GTX 1080",
+    "ultralytics": "8.4.218"
+  },
+  "yolo_cfg": {
+    "epochs": 100,
+    "imgsz": 640,
+    "batch": 16,
+    "workers": 0,
+    "amp": false,
+    "seed": 42,
+    "deterministic": true,
+    "plots": false,
+    "verbose": false,
+    "val": false
+  },
+  "conf": 0.25,
+  "label_stats": {
+    "bottle": {
+      "defect_images": 63,
+      "boxes": 68,
+      "max_boxes_per_image": 3,
+      "multi_box_images": 4
+    },
+    "screw": {
+      "defect_images": 119,
+      "boxes": 135,
+      "max_boxes_per_image": 3,
+      "multi_box_images": 12
+    },
+    "carpet": {
+      "defect_images": 89,
+      "boxes": 97,
+      "max_boxes_per_image": 3,
+      "multi_box_images": 7
+    }
+  },
+  "full": {
+    "bottle": {
+      "name": "bottle_full",
+      "category": "bottle",
+      "exclude": null,
+      "train_sec": 214.7,
+      "n_train": 41,
+      "n_train_defect": 31,
+      "mAP50": 0.8043,
+      "mAP50_95": 0.5038,
+      "box_precision": 0.8709,
+      "box_recall": 0.7494,
+      "speed_ms": {
+        "preprocess": 2.14,
+        "inference": 3.17,
+        "postprocess": 1.43
+      }
+    },
+    "screw": {
+      "name": "screw_full",
+      "category": "screw",
+      "exclude": null,
+      "train_sec": 309.6,
+      "n_train": 80,
+      "n_train_defect": 60,
+      "mAP50": 0.5099,
+      "mAP50_95": 0.2747,
+      "box_precision": 0.6582,
+      "box_recall": 0.5252,
+      "speed_ms": {
+        "preprocess": 2.92,
+        "inference": 3.78,
+        "postprocess": 0.93
+      }
+    },
+    "carpet": {
+      "name": "carpet_full",
+      "category": "carpet",
+      "exclude": null,
+      "train_sec": 270.0,
+      "n_train": 58,
+      "n_train_defect": 44,
+      "mAP50": 0.8577,
+      "mAP50_95": 0.4885,
+      "box_precision": 0.862,
+      "box_recall": 0.8085,
+      "speed_ms": {
+        "preprocess": 2.43,
+        "inference": 4.26,
+        "postprocess": 1.38
+      }
+    }
+  },
+  "compare": [
+    {
+      "category": "bottle",
+      "model": "PatchCore",
+      "image_AUROC": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0,
+      "missed": 0,
+      "false_alarm": 0,
+      "loc_hit": 0.969,
+      "B_defect": 32,
+      "B_good": 10
+    },
+    {
+      "category": "bottle",
+      "model": "YOLO",
+      "image_AUROC": 1.0,
+      "recall": 0.969,
+      "fpr": 0.0,
+      "missed": 1,
+      "false_alarm": 0,
+      "loc_hit": 0.938,
+      "B_defect": 32,
+      "B_good": 10
+    },
+    {
+      "category": "screw",
+      "model": "PatchCore",
+      "image_AUROC": 0.9693,
+      "recall": 0.966,
+      "fpr": 0.238,
+      "missed": 2,
+      "false_alarm": 5,
+      "loc_hit": 0.508,
+      "B_defect": 59,
+      "B_good": 21
+    },
+    {
+      "category": "screw",
+      "model": "YOLO",
+      "image_AUROC": 0.9403,
+      "recall": 0.678,
+      "fpr": 0.048,
+      "missed": 19,
+      "false_alarm": 1,
+      "loc_hit": 0.678,
+      "B_defect": 59,
+      "B_good": 21
+    },
+    {
+      "category": "carpet",
+      "model": "PatchCore",
+      "image_AUROC": 0.9889,
+      "recall": 0.889,
+      "fpr": 0.0,
+      "missed": 5,
+      "false_alarm": 0,
+      "loc_hit": 0.822,
+      "B_defect": 45,
+      "B_good": 14
+    },
+    {
+      "category": "carpet",
+      "model": "YOLO",
+      "image_AUROC": 0.9746,
+      "recall": 0.956,
+      "fpr": 0.143,
+      "missed": 2,
+      "false_alarm": 2,
+      "loc_hit": 0.956,
+      "B_defect": 45,
+      "B_good": 14
+    }
+  ],
+  "by_type": [
+    {
+      "category": "bottle",
+      "defect_type": "broken_large",
+      "n_B": 11,
+      "PatchCore": 1.0,
+      "YOLO": 1.0
+    },
+    {
+      "category": "bottle",
+      "defect_type": "broken_small",
+      "n_B": 10,
+      "PatchCore": 1.0,
+      "YOLO": 1.0
+    },
+    {
+      "category": "bottle",
+      "defect_type": "contamination",
+      "n_B": 11,
+      "PatchCore": 1.0,
+      "YOLO": 0.909
+    },
+    {
+      "category": "screw",
+      "defect_type": "manipulated_front",
+      "n_B": 12,
+      "PatchCore": 1.0,
+      "YOLO": 0.167
+    },
+    {
+      "category": "screw",
+      "defect_type": "scratch_head",
+      "n_B": 12,
+      "PatchCore": 0.917,
+      "YOLO": 0.917
+    },
+    {
+      "category": "screw",
+      "defect_type": "scratch_neck",
+      "n_B": 12,
+      "PatchCore": 1.0,
+      "YOLO": 0.917
+    },
+    {
+      "category": "screw",
+      "defect_type": "thread_side",
+      "n_B": 11,
+      "PatchCore": 1.0,
+      "YOLO": 0.636
+    },
+    {
+      "category": "screw",
+      "defect_type": "thread_top",
+      "n_B": 12,
+      "PatchCore": 0.917,
+      "YOLO": 0.75
+    },
+    {
+      "category": "carpet",
+      "defect_type": "color",
+      "n_B": 11,
+      "PatchCore": 0.909,
+      "YOLO": 1.0
+    },
+    {
+      "category": "carpet",
+      "defect_type": "cut",
+      "n_B": 5,
+      "PatchCore": 1.0,
+      "YOLO": 1.0
+    },
+    {
+      "category": "carpet",
+      "defect_type": "hole",
+      "n_B": 9,
+      "PatchCore": 1.0,
+      "YOLO": 1.0
+    },
+    {
+      "category": "carpet",
+      "defect_type": "metal_contamination",
+      "n_B": 9,
+      "PatchCore": 0.889,
+      "YOLO": 1.0
+    },
+    {
+      "category": "carpet",
+      "defect_type": "thread",
+      "n_B": 11,
+      "PatchCore": 0.727,
+      "YOLO": 0.818
+    }
+  ],
+  "unseen": [
+    {
+      "category": "bottle",
+      "held_out": "broken_large",
+      "n_B": 11,
+      "YOLO_seen": 1.0,
+      "YOLO_unseen": 1.0,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 185.4
+    },
+    {
+      "category": "bottle",
+      "held_out": "broken_small",
+      "n_B": 10,
+      "YOLO_seen": 1.0,
+      "YOLO_unseen": 0.9,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 173.7
+    },
+    {
+      "category": "bottle",
+      "held_out": "contamination",
+      "n_B": 11,
+      "YOLO_seen": 0.909,
+      "YOLO_unseen": 0.455,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 171.2
+    },
+    {
+      "category": "screw",
+      "held_out": "manipulated_front",
+      "n_B": 12,
+      "YOLO_seen": 0.167,
+      "YOLO_unseen": 0.167,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 278.6
+    },
+    {
+      "category": "screw",
+      "held_out": "scratch_head",
+      "n_B": 12,
+      "YOLO_seen": 0.917,
+      "YOLO_unseen": 0.833,
+      "YOLO_unseen_fpr": 0.095,
+      "PatchCore": 0.917,
+      "train_sec": 282.8
+    },
+    {
+      "category": "screw",
+      "held_out": "scratch_neck",
+      "n_B": 12,
+      "YOLO_seen": 0.917,
+      "YOLO_unseen": 0.75,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 293.3
+    },
+    {
+      "category": "screw",
+      "held_out": "thread_side",
+      "n_B": 11,
+      "YOLO_seen": 0.636,
+      "YOLO_unseen": 0.273,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 284.6
+    },
+    {
+      "category": "screw",
+      "held_out": "thread_top",
+      "n_B": 12,
+      "YOLO_seen": 0.75,
+      "YOLO_unseen": 0.0,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 0.917,
+      "train_sec": 312.4
+    },
+    {
+      "category": "carpet",
+      "held_out": "color",
+      "n_B": 11,
+      "YOLO_seen": 1.0,
+      "YOLO_unseen": 0.0,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 0.909,
+      "train_sec": 271.7
+    },
+    {
+      "category": "carpet",
+      "held_out": "cut",
+      "n_B": 5,
+      "YOLO_seen": 1.0,
+      "YOLO_unseen": 1.0,
+      "YOLO_unseen_fpr": 0.071,
+      "PatchCore": 1.0,
+      "train_sec": 238.6
+    },
+    {
+      "category": "carpet",
+      "held_out": "hole",
+      "n_B": 9,
+      "YOLO_seen": 1.0,
+      "YOLO_unseen": 1.0,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 1.0,
+      "train_sec": 240.9
+    },
+    {
+      "category": "carpet",
+      "held_out": "metal_contamination",
+      "n_B": 9,
+      "YOLO_seen": 1.0,
+      "YOLO_unseen": 1.0,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 0.889,
+      "train_sec": 239.7
+    },
+    {
+      "category": "carpet",
+      "held_out": "thread",
+      "n_B": 11,
+      "YOLO_seen": 0.818,
+      "YOLO_unseen": 0.455,
+      "YOLO_unseen_fpr": 0.0,
+      "PatchCore": 0.727,
+      "train_sec": 244.8
+    }
+  ],
+  "unseen_mean": {
+    "YOLO_seen": 0.8549,
+    "YOLO_unseen": 0.6025,
+    "PatchCore": 0.9507
+  },
+  "speed": {
+    "PatchCore 10% (ms/장)": 27.17,
+    "PatchCore 1% (ms/장)": 7.65,
+    "YOLO (ms/장, 전처리+추론+후처리)": 7.48,
+    "YOLO 추론만 (ms/장)": 3.74,
+    "YOLO 학습 (초, 평균)": 264.8
+  },
+  "three_way": {
+    "bottle": {
+      "t_low": 32.8887,
+      "t_high": 32.8887,
+      "n": 42,
+      "auto_pass": 10,
+      "review": 0,
+      "auto_ng": 32,
+      "missed_in_pass": 0,
+      "good_in_ng": 0,
+      "review_defect": 0,
+      "review_good": 0
+    },
+    "cable": {
+      "t_low": 39.9116,
+      "t_high": 43.0646,
+      "n": 75,
+      "auto_pass": 17,
+      "review": 11,
+      "auto_ng": 47,
+      "missed_in_pass": 0,
+      "good_in_ng": 1,
+      "review_defect": 0,
+      "review_good": 11
+    },
+    "capsule": {
+      "t_low": 25.9079,
+      "t_high": 26.4708,
+      "n": 66,
+      "auto_pass": 10,
+      "review": 1,
+      "auto_ng": 55,
+      "missed_in_pass": 1,
+      "good_in_ng": 2,
+      "review_defect": 0,
+      "review_good": 1
+    },
+    "carpet": {
+      "t_low": 25.2792,
+      "t_high": 33.3285,
+      "n": 59,
+      "auto_pass": 3,
+      "review": 12,
+      "auto_ng": 44,
+      "missed_in_pass": 0,
+      "good_in_ng": 1,
+      "review_defect": 2,
+      "review_good": 10
+    },
+    "grid": {
+      "t_low": 31.8527,
+      "t_high": 31.8527,
+      "n": 39,
+      "auto_pass": 11,
+      "review": 0,
+      "auto_ng": 28,
+      "missed_in_pass": 2,
+      "good_in_ng": 2,
+      "review_defect": 0,
+      "review_good": 0
+    },
+    "hazelnut": {
+      "t_low": 45.5641,
+      "t_high": 45.5641,
+      "n": 55,
+      "auto_pass": 20,
+      "review": 0,
+      "auto_ng": 35,
+      "missed_in_pass": 0,
+      "good_in_ng": 0,
+      "review_defect": 0,
+      "review_good": 0
+    },
+    "leather": {
+      "t_low": 33.9045,
+      "t_high": 33.9045,
+      "n": 62,
+      "auto_pass": 16,
+      "review": 0,
+      "auto_ng": 46,
+      "missed_in_pass": 0,
+      "good_in_ng": 0,
+      "review_defect": 0,
+      "review_good": 0
+    },
+    "metal_nut": {
+      "t_low": 36.4045,
+      "t_high": 38.7448,
+      "n": 58,
+      "auto_pass": 7,
+      "review": 3,
+      "auto_ng": 48,
+      "missed_in_pass": 0,
+      "good_in_ng": 1,
+      "review_defect": 0,
+      "review_good": 3
+    },
+    "pill": {
+      "t_low": 29.7269,
+      "t_high": 38.4189,
+      "n": 84,
+      "auto_pass": 1,
+      "review": 31,
+      "auto_ng": 52,
+      "missed_in_pass": 0,
+      "good_in_ng": 0,
+      "review_defect": 19,
+      "review_good": 12
+    },
+    "screw": {
+      "t_low": 29.8832,
+      "t_high": 35.4255,
+      "n": 80,
+      "auto_pass": 18,
+      "review": 21,
+      "auto_ng": 41,
+      "missed_in_pass": 2,
+      "good_in_ng": 0,
+      "review_defect": 16,
+      "review_good": 5
+    },
+    "tile": {
+      "t_low": 36.4296,
+      "t_high": 36.4296,
+      "n": 59,
+      "auto_pass": 17,
+      "review": 0,
+      "auto_ng": 42,
+      "missed_in_pass": 0,
+      "good_in_ng": 0,
+      "review_defect": 0,
+      "review_good": 0
+    },
+    "toothbrush": {
+      "t_low": 34.69,
+      "t_high": 39.2209,
+      "n": 21,
+      "auto_pass": 5,
+      "review": 3,
+      "auto_ng": 13,
+      "missed_in_pass": 1,
+      "good_in_ng": 2,
+      "review_defect": 3,
+      "review_good": 0
+    },
+    "transistor": {
+      "t_low": 36.1855,
+      "t_high": 37.6199,
+      "n": 50,
+      "auto_pass": 26,
+      "review": 3,
+      "auto_ng": 21,
+      "missed_in_pass": 0,
+      "good_in_ng": 2,
+      "review_defect": 1,
+      "review_good": 2
+    },
+    "wood": {
+      "t_low": 42.5093,
+      "t_high": 42.5093,
+      "n": 40,
+      "auto_pass": 11,
+      "review": 0,
+      "auto_ng": 29,
+      "missed_in_pass": 2,
+      "good_in_ng": 1,
+      "review_defect": 0,
+      "review_good": 0
+    },
+    "zipper": {
+      "t_low": 29.6193,
+      "t_high": 29.6193,
+      "n": 76,
+      "auto_pass": 16,
+      "review": 0,
+      "auto_ng": 60,
+      "missed_in_pass": 2,
+      "good_in_ng": 2,
+      "review_defect": 0,
+      "review_good": 0
+    }
+  },
+  "three_way_total": {
+    "n": 866,
+    "auto_pass": 188,
+    "review": 85,
+    "auto_ng": 593,
+    "missed_in_pass": 10,
+    "good_in_ng": 14
+  }
+}

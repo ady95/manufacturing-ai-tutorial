@@ -1,0 +1,38 @@
+{
+  "bottle": {
+    "t_low": 32.8887,
+    "t_high": 32.8887,
+    "n": 42,
+    "auto_pass": 10,
+    "review": 0,
+    "auto_ng": 32,
+    "missed_in_pass": 0,
+    "good_in_ng": 0,
+    "review_defect": 0,
+    "review_good": 0
+  },
+  "screw": {
+    "t_low": 29.8832,
+    "t_high": 35.4255,
+    "n": 80,
+    "auto_pass": 18,
+    "review": 21,
+    "auto_ng": 41,
+    "missed_in_pass": 2,
+    "good_in_ng": 0,
+    "review_defect": 16,
+    "review_good": 5
+  },
+  "carpet": {
+    "t_low": 25.2792,
+    "t_high": 33.3285,
+    "n": 59,
+    "auto_pass": 3,
+    "review": 12,
+    "auto_ng": 44,
+    "missed_in_pass": 0,
+    "good_in_ng": 1,
+    "review_defect": 2,
+    "review_good": 10
+  }
+}
