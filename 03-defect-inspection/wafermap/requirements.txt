@@ -2,7 +2,7 @@
 numpy==2.5.5
 pandas==3.1.1
 scikit-learn==1.9.1
-opencv-python-headless==5.1.0
+opencv-python-headless==5.1.0.95
 matplotlib==3.11.2
 kaggle
 # 12장 CNN (책 수치는 GTX 1080, CUDA 12.6 빌드로 측정. Colab GPU 런타임에는 기본 설치된 torch를 그대로 쓰면 됩니다)
