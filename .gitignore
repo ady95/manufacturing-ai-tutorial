@@ -40,3 +40,5 @@ Thumbs.db
 03-defect-inspection/inspection-system/runs/
 03-defect-inspection/inspection-system/results/14_runs/
 03-defect-inspection/inspection-system/results/review_log.csv
+04-dashboard/models/
+04-dashboard/results/vm_log.sqlite
