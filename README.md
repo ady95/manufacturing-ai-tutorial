@@ -24,9 +24,9 @@
 
 | 데이터셋 | 출처 | 이용 조건 |
 |---|---|---|
-| UCI SECOM | https://archive.ics.uci.edu/dataset/179/secom | 원본 페이지 확인 |
+| UCI SECOM | https://archive.ics.uci.edu/dataset/179/secom | CC BY 4.0 |
 | PHM 2016 CMP | https://phmsociety.org/ (2016 PHM Data Challenge). 원본 다운로드 링크가 끊겨 Notebook은 인터넷 아카이브(Wayback Machine) 보존본을 받습니다 | 원본 페이지에 이용 조건 명시 없음. 학습 목적으로 출처를 밝혀 사용 |
-| WM-811K | https://www.kaggle.com/datasets/qingyi/wm811k-wafer-map | Kaggle 데이터셋 조건 확인 |
+| WM-811K | https://www.kaggle.com/datasets/qingyi/wm811k-wafer-map | Kaggle 페이지에 라이선스 표기 없음. 출처를 밝혀 학습 목적으로 사용 |
 | MVTec AD | https://www.mvtec.com/research-teaching/datasets/mvtec-ad | CC BY-NC-SA 4.0 (비상업적 이용) |
 
 ## 재현 정보
