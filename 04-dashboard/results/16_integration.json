@@ -1,0 +1,329 @@
+{
+  "secom": {
+    "n": 314,
+    "fail": 17,
+    "threshold": 0.819,
+    "alarm": 5,
+    "tp": 2,
+    "fp": 3,
+    "matches_ch6": true,
+    "cost": {
+      "알람 없음": 170,
+      "모델 알람(임계값 0.819)": 153,
+      "전수 재검사": 297
+    }
+  },
+  "vm": {
+    "n_pred": 1695,
+    "n_feedback": 171,
+    "cost": [
+      {
+        "C_over": 2,
+        "every": 2,
+        "measured_pct": 50.1,
+        "over_tol_pct": 23.0,
+        "cost_per_100": 73.1
+      },
+      {
+        "C_over": 2,
+        "every": 5,
+        "measured_pct": 20.1,
+        "over_tol_pct": 25.2,
+        "cost_per_100": 60.4
+      },
+      {
+        "C_over": 2,
+        "every": 10,
+        "measured_pct": 10.1,
+        "over_tol_pct": 29.5,
+        "cost_per_100": 63.1
+      },
+      {
+        "C_over": 2,
+        "every": 20,
+        "measured_pct": 5.1,
+        "over_tol_pct": 33.9,
+        "cost_per_100": 69.4
+      },
+      {
+        "C_over": 2,
+        "every": 1,
+        "measured_pct": 100.0,
+        "over_tol_pct": 0.0,
+        "cost_per_100": 100.0
+      },
+      {
+        "C_over": 5,
+        "every": 2,
+        "measured_pct": 50.1,
+        "over_tol_pct": 23.0,
+        "cost_per_100": 107.5
+      },
+      {
+        "C_over": 5,
+        "every": 5,
+        "measured_pct": 20.1,
+        "over_tol_pct": 25.2,
+        "cost_per_100": 120.8
+      },
+      {
+        "C_over": 5,
+        "every": 10,
+        "measured_pct": 10.1,
+        "over_tol_pct": 29.5,
+        "cost_per_100": 142.7
+      },
+      {
+        "C_over": 5,
+        "every": 20,
+        "measured_pct": 5.1,
+        "over_tol_pct": 33.9,
+        "cost_per_100": 166.0
+      },
+      {
+        "C_over": 5,
+        "every": 1,
+        "measured_pct": 100.0,
+        "over_tol_pct": 0.0,
+        "cost_per_100": 100.0
+      },
+      {
+        "C_over": 10,
+        "every": 2,
+        "measured_pct": 50.1,
+        "over_tol_pct": 23.0,
+        "cost_per_100": 164.9
+      },
+      {
+        "C_over": 10,
+        "every": 5,
+        "measured_pct": 20.1,
+        "over_tol_pct": 25.2,
+        "cost_per_100": 221.4
+      },
+      {
+        "C_over": 10,
+        "every": 10,
+        "measured_pct": 10.1,
+        "over_tol_pct": 29.5,
+        "cost_per_100": 275.3
+      },
+      {
+        "C_over": 10,
+        "every": 20,
+        "measured_pct": 5.1,
+        "over_tol_pct": 33.9,
+        "cost_per_100": 326.8
+      },
+      {
+        "C_over": 10,
+        "every": 1,
+        "measured_pct": 100.0,
+        "over_tol_pct": 0.0,
+        "cost_per_100": 100.0
+      },
+      {
+        "C_over": 20,
+        "every": 2,
+        "measured_pct": 50.1,
+        "over_tol_pct": 23.0,
+        "cost_per_100": 279.6
+      },
+      {
+        "C_over": 20,
+        "every": 5,
+        "measured_pct": 20.1,
+        "over_tol_pct": 25.2,
+        "cost_per_100": 422.8
+      },
+      {
+        "C_over": 20,
+        "every": 10,
+        "measured_pct": 10.1,
+        "over_tol_pct": 29.5,
+        "cost_per_100": 540.5
+      },
+      {
+        "C_over": 20,
+        "every": 20,
+        "measured_pct": 5.1,
+        "over_tol_pct": 33.9,
+        "cost_per_100": 648.5
+      },
+      {
+        "C_over": 20,
+        "every": 1,
+        "measured_pct": 100.0,
+        "over_tol_pct": 0.0,
+        "cost_per_100": 100.0
+      }
+    ]
+  },
+  "image": {
+    "n": 866,
+    "n_defect": 630,
+    "three_way": {
+      "n": 866,
+      "auto_pass": 188,
+      "review": 85,
+      "auto_ng": 593,
+      "missed_in_pass": 10,
+      "good_in_ng": 14
+    },
+    "single": {
+      "FN": 29,
+      "FP": 18
+    },
+    "cost": [
+      {
+        "C_review": 0.05,
+        "policy": "단일 임계값(자동)",
+        "review": 0,
+        "missed": 29,
+        "false_ng": 18,
+        "cost": 308.0
+      },
+      {
+        "C_review": 0.05,
+        "policy": "3단계(자동+재검토)",
+        "review": 85,
+        "missed": 10,
+        "false_ng": 14,
+        "cost": 118.2
+      },
+      {
+        "C_review": 0.05,
+        "policy": "전수 사람 판독",
+        "review": 866,
+        "missed": 0,
+        "false_ng": 0,
+        "cost": 43.3
+      },
+      {
+        "C_review": 0.1,
+        "policy": "단일 임계값(자동)",
+        "review": 0,
+        "missed": 29,
+        "false_ng": 18,
+        "cost": 308.0
+      },
+      {
+        "C_review": 0.1,
+        "policy": "3단계(자동+재검토)",
+        "review": 85,
+        "missed": 10,
+        "false_ng": 14,
+        "cost": 122.5
+      },
+      {
+        "C_review": 0.1,
+        "policy": "전수 사람 판독",
+        "review": 866,
+        "missed": 0,
+        "false_ng": 0,
+        "cost": 86.6
+      },
+      {
+        "C_review": 0.2,
+        "policy": "단일 임계값(자동)",
+        "review": 0,
+        "missed": 29,
+        "false_ng": 18,
+        "cost": 308.0
+      },
+      {
+        "C_review": 0.2,
+        "policy": "3단계(자동+재검토)",
+        "review": 85,
+        "missed": 10,
+        "false_ng": 14,
+        "cost": 131.0
+      },
+      {
+        "C_review": 0.2,
+        "policy": "전수 사람 판독",
+        "review": 866,
+        "missed": 0,
+        "false_ng": 0,
+        "cost": 173.2
+      },
+      {
+        "C_review": 0.5,
+        "policy": "단일 임계값(자동)",
+        "review": 0,
+        "missed": 29,
+        "false_ng": 18,
+        "cost": 308.0
+      },
+      {
+        "C_review": 0.5,
+        "policy": "3단계(자동+재검토)",
+        "review": 85,
+        "missed": 10,
+        "false_ng": 14,
+        "cost": 156.5
+      },
+      {
+        "C_review": 0.5,
+        "policy": "전수 사람 판독",
+        "review": 866,
+        "missed": 0,
+        "false_ng": 0,
+        "cost": 433.0
+      },
+      {
+        "C_review": 1.0,
+        "policy": "단일 임계값(자동)",
+        "review": 0,
+        "missed": 29,
+        "false_ng": 18,
+        "cost": 308.0
+      },
+      {
+        "C_review": 1.0,
+        "policy": "3단계(자동+재검토)",
+        "review": 85,
+        "missed": 10,
+        "false_ng": 14,
+        "cost": 199.0
+      },
+      {
+        "C_review": 1.0,
+        "policy": "전수 사람 판독",
+        "review": 866,
+        "missed": 0,
+        "false_ng": 0,
+        "cost": 866.0
+      }
+    ]
+  },
+  "summary": [
+    {
+      "PoC": "불량 위험 예측",
+      "모델 출력": "불량 확률",
+      "행동": "재검사 알람",
+      "평가 대상": "SECOM 평가 314건",
+      "행동 건수": 5,
+      "잡은 문제": "불량 2/17",
+      "가정 비용(모델/기준)": "153 / 알람 없음 170"
+    },
+    {
+      "PoC": "가상계측",
+      "모델 출력": "제거율 예측 + 구간",
+      "행동": "추가 계측(10장에 1장)",
+      "평가 대상": "CMP 운영 1695건",
+      "행동 건수": 171,
+      "잡은 문제": "허용오차 초과 29.5%(미실측)",
+      "가정 비용(모델/기준)": "142.7 / 전수 계측 100 (100장당)"
+    },
+    {
+      "PoC": "이미지 판독",
+      "모델 출력": "이상 점수 + Heatmap",
+      "행동": "엔지니어 재검토",
+      "평가 대상": "MVTec AD B 866장",
+      "행동 건수": 85,
+      "잡은 문제": "자동 통과 속 불량 10/630",
+      "가정 비용(모델/기준)": "131.0 / 단일 임계값 308.0"
+    }
+  ]
+}
