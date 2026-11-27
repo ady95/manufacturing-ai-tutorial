@@ -12,7 +12,9 @@
 # # 16장. 최종 프로젝트: 제조 AI 품질관리 시스템
 #
 # 「AI로 만드는 제조공정 품질관리 따라하기」 16장 실습 Notebook입니다. CPU 런타임으로 충분합니다.
-# 새로 학습하지 않고, 앞 장들이 저장한 결과를 모읍니다. **5·6장, 9장, 13·14장, 15장 Notebook을 먼저 실행해야 합니다.**
+# 새로 학습하지 않고, 앞 장들이 저장한 결과(5·6장, 9장, 13·14장, 15장)를 모읍니다.
+# 책에 실린 결과 파일이 저장소에 들어 있으므로, 앞 장을 실행하지 않아도 이 Notebook만 따로 돌릴 수 있습니다.
+# 앞 장을 같은 폴더에서 직접 실행했다면 그 결과 파일로 바뀌어 계산됩니다.
 #
 # 세 데이터셋(SECOM, PHM 2016 CMP, MVTec AD)은 서로 다른 출처이며 같은 제조라인의 데이터가 아닙니다.
 # 이 Notebook은 세 결과를 연결하지 않고, 같은 의사결정 틀(재검사 알람 / 추가 계측 / 엔지니어 재검토)로 나란히 정리합니다.
@@ -28,7 +30,8 @@ import sys
 from pathlib import Path
 
 if "google.colab" in sys.modules and not Path("src").exists():
-    %cd /content/manufacturing-ai-tutorial/04-dashboard
+    !git clone -q https://github.com/ady95/manufacturing-ai-tutorial.git
+    %cd manufacturing-ai-tutorial/04-dashboard
 
 ROOT = Path.cwd() if (Path.cwd() / "src").exists() else Path.cwd().parent
 os.chdir(ROOT)

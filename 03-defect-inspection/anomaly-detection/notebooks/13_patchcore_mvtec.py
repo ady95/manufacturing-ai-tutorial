@@ -31,6 +31,9 @@ import os
 import sys
 from pathlib import Path
 
+# Colab은 Notebook마다 런타임이 따로라서, 14장 Notebook이 쓸 결과를 Drive의 이 폴더에 보관합니다
+DRIVE_RUNS = "/content/drive/MyDrive/manufacturing-ai/13_runs"
+
 if "google.colab" in sys.modules and not Path("src").exists():
     !git clone -q https://github.com/ady95/manufacturing-ai-tutorial.git
     %cd manufacturing-ai-tutorial/03-defect-inspection/anomaly-detection
@@ -39,6 +42,7 @@ if "google.colab" in sys.modules and not Path("src").exists():
     drive.mount("/content/drive")
     TAR = "/content/drive/MyDrive/mvtec_anomaly_detection.tar.xz"      # Drive에 올린 위치에 맞게 바꾸세요
     !mkdir -p data/mvtec_ad && tar -xJf {TAR} -C data/mvtec_ad
+    !mkdir -p {DRIVE_RUNS} results && cp -r {DRIVE_RUNS} results/     # 세션이 끊긴 뒤 다시 실행하면 끝난 카테고리를 건너뜀
 
 ROOT = Path.cwd() if (Path.cwd() / "src").exists() else Path.cwd().parent
 os.chdir(ROOT)
@@ -47,6 +51,7 @@ Path("results/13_runs").mkdir(parents=True, exist_ok=True)
 
 # %%
 import json
+import shutil
 import time
 
 import matplotlib.pyplot as plt
@@ -144,6 +149,8 @@ for c in CATEGORIES:
     print(f"{c:11s} PatchCore 이미지 {r['image_AUROC']:.3f} 픽셀 {r['pixel_AUROC']:.3f} PRO {r['pixel_AUPRO']:.3f} "
           f"| 기준 이미지 {results['global_knn'][c]['image_AUROC']:.3f} | 학습 {r['fit_sec']:.0f}초 "
           f"({time.perf_counter() - t0:.0f}초)")
+    if "google.colab" in sys.modules:                  # 카테고리마다 Drive에 복사 (세션이 끊겨도 이어서, 14장에서 불러 씀)
+        shutil.copytree("results/13_runs", DRIVE_RUNS, dirs_exist_ok=True)
 
 # %%
 table = pd.DataFrame({

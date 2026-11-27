@@ -13,6 +13,7 @@
 #
 # 「AI로 만드는 제조공정 품질관리 따라하기」 14장 실습 Notebook입니다. GPU(T4) 런타임을 쓰세요.
 # **13장 Notebook을 먼저 실행해야 합니다**(PatchCore 점수·이상 지도를 불러옵니다).
+# Colab에서는 13장 Notebook이 Drive(`MyDrive/manufacturing-ai/13_runs`)에 보관한 결과를 첫 셀이 가져옵니다.
 #
 # - 데이터: MVTec AD (CC BY-NC-SA 4.0, 비상업적 이용). 결함 마스크를 상자(Bounding Box)로 바꿔 YOLO 라벨로 씁니다
 # - YOLO: Ultralytics (AGPL-3.0)
@@ -32,8 +33,16 @@ import sys
 from pathlib import Path
 
 if "google.colab" in sys.modules and not Path("src").exists():
-    %cd /content/manufacturing-ai-tutorial/03-defect-inspection/inspection-system
+    !git clone -q https://github.com/ady95/manufacturing-ai-tutorial.git
+    %cd manufacturing-ai-tutorial/03-defect-inspection/inspection-system
     !pip install -q ultralytics==8.4.218
+    from google.colab import drive
+    drive.mount("/content/drive")
+    TAR = "/content/drive/MyDrive/mvtec_anomaly_detection.tar.xz"      # 13장과 같은 위치
+    MVTEC_DIR = "../anomaly-detection/data/mvtec_ad"
+    !mkdir -p {MVTEC_DIR} && tar -xJf {TAR} -C {MVTEC_DIR}
+    # 13장 Notebook이 Drive에 보관한 PatchCore 결과 (Colab은 Notebook마다 런타임이 따로라서)
+    !mkdir -p ../anomaly-detection/results && cp -r /content/drive/MyDrive/manufacturing-ai/13_runs ../anomaly-detection/results/
 
 ROOT = Path.cwd() if (Path.cwd() / "src").exists() else Path.cwd().parent
 os.chdir(ROOT)

@@ -31,7 +31,7 @@ from pathlib import Path
 if "google.colab" in sys.modules and not Path("src").exists():
     !git clone -q https://github.com/ady95/manufacturing-ai-tutorial.git
     %cd manufacturing-ai-tutorial/04-dashboard
-    !pip install -q fastapi==0.165.0 httpx==0.28.1
+    !pip install -q fastapi==0.165.0 uvicorn==0.54.0 httpx==0.28.1
 
 ROOT = Path.cwd() if (Path.cwd() / "src").exists() else Path.cwd().parent
 os.chdir(ROOT)

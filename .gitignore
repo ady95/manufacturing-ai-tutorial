@@ -31,6 +31,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.npy
+!01-yield-risk/results/05_test_proba.npy
 03-defect-inspection/wafermap/results/12_runs/
 03-defect-inspection/wafermap/results/12b_runs/
 *.tar.xz
@@ -42,4 +43,4 @@ Thumbs.db
 03-defect-inspection/inspection-system/results/14_runs/
 03-defect-inspection/inspection-system/results/review_log.csv
 04-dashboard/models/
-04-dashboard/results/vm_log.sqlite
+# 16장이 앞 장을 실행하지 않고도 돌 수 있도록 책 실측 결과 2개는 저장소에 둔다 (05_test_proba.npy, vm_log.sqlite)
