@@ -1,0 +1,686 @@
+{
+  "env": {
+    "python": "3.12.15",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1",
+    "opencv": "5.1.0",
+    "torch": "2.14.1+cu126",
+    "torchvision": "0.29.1+cu126",
+    "device": "NVIDIA GeForce RTX 3090"
+  },
+  "device": "cuda",
+  "design": {
+    "A": "Training 뒤쪽 Lot 20%, 시드 42·43·44",
+    "B": "StratifiedGroupKFold 5겹(Lot 단위, 시드 42), 겹마다 시드 42"
+  },
+  "val_counts": {
+    "A": [
+      {
+        "fold": 0,
+        "train": 43461,
+        "val": 10894,
+        "val_defect": 110,
+        "Center": 8,
+        "Donut": 1,
+        "Edge-Loc": 41,
+        "Edge-Ring": 9,
+        "Loc": 32,
+        "Near-full": 8,
+        "Random": 4,
+        "Scratch": 7,
+        "none": 10784
+      }
+    ],
+    "B": [
+      {
+        "fold": 0,
+        "train": 43486,
+        "val": 10869,
+        "val_defect": 3525,
+        "Center": 693,
+        "Donut": 82,
+        "Edge-Loc": 483,
+        "Edge-Ring": 1711,
+        "Loc": 324,
+        "Near-full": 10,
+        "Random": 122,
+        "Scratch": 100,
+        "none": 7344
+      },
+      {
+        "fold": 1,
+        "train": 43474,
+        "val": 10881,
+        "val_defect": 3522,
+        "Center": 692,
+        "Donut": 81,
+        "Edge-Loc": 483,
+        "Edge-Ring": 1710,
+        "Loc": 324,
+        "Near-full": 11,
+        "Random": 121,
+        "Scratch": 100,
+        "none": 7359
+      },
+      {
+        "fold": 2,
+        "train": 43486,
+        "val": 10869,
+        "val_defect": 3527,
+        "Center": 693,
+        "Donut": 82,
+        "Edge-Loc": 484,
+        "Edge-Ring": 1711,
+        "Loc": 324,
+        "Near-full": 11,
+        "Random": 122,
+        "Scratch": 100,
+        "none": 7342
+      },
+      {
+        "fold": 3,
+        "train": 43487,
+        "val": 10868,
+        "val_defect": 3526,
+        "Center": 692,
+        "Donut": 82,
+        "Edge-Loc": 484,
+        "Edge-Ring": 1711,
+        "Loc": 324,
+        "Near-full": 11,
+        "Random": 122,
+        "Scratch": 100,
+        "none": 7342
+      },
+      {
+        "fold": 4,
+        "train": 43487,
+        "val": 10868,
+        "val_defect": 3525,
+        "Center": 692,
+        "Donut": 82,
+        "Edge-Loc": 483,
+        "Edge-Ring": 1711,
+        "Loc": 324,
+        "Near-full": 11,
+        "Random": 122,
+        "Scratch": 100,
+        "none": 7343
+      }
+    ]
+  },
+  "resnet_uses_class_weight": {
+    "A": false,
+    "B": false
+  },
+  "table": [
+    {
+      "split": "A",
+      "config": "CNN",
+      "val_mean": 0.8359,
+      "val_sd": 0.0275,
+      "test_mean": 0.6732,
+      "test_sd": 0.0097,
+      "max_epoch_jump_mean": 0.2694,
+      "train_sec_mean": 123.3667
+    },
+    {
+      "split": "A",
+      "config": "CNN (클래스 가중치)",
+      "val_mean": 0.8047,
+      "val_sd": 0.0279,
+      "test_mean": 0.6274,
+      "test_sd": 0.0156,
+      "max_epoch_jump_mean": 0.2633,
+      "train_sec_mean": 86.9
+    },
+    {
+      "split": "A",
+      "config": "ResNet18 (사전학습)",
+      "val_mean": 0.8035,
+      "val_sd": 0.0209,
+      "test_mean": 0.6676,
+      "test_sd": 0.0472,
+      "max_epoch_jump_mean": 0.153,
+      "train_sec_mean": 49.3333
+    },
+    {
+      "split": "A",
+      "config": "ResNet18 (무작위 초기화)",
+      "val_mean": 0.8568,
+      "val_sd": 0.0217,
+      "test_mean": 0.671,
+      "test_sd": 0.0193,
+      "max_epoch_jump_mean": 0.2178,
+      "train_sec_mean": 79.8333
+    },
+    {
+      "split": "B",
+      "config": "CNN",
+      "val_mean": 0.918,
+      "val_sd": 0.0104,
+      "test_mean": 0.6562,
+      "test_sd": 0.0223,
+      "max_epoch_jump_mean": 0.177,
+      "train_sec_mean": 125.58
+    },
+    {
+      "split": "B",
+      "config": "CNN (클래스 가중치)",
+      "val_mean": 0.9168,
+      "val_sd": 0.0103,
+      "test_mean": 0.6607,
+      "test_sd": 0.0256,
+      "max_epoch_jump_mean": 0.1875,
+      "train_sec_mean": 114.88
+    },
+    {
+      "split": "B",
+      "config": "ResNet18 (사전학습)",
+      "val_mean": 0.9387,
+      "val_sd": 0.0078,
+      "test_mean": 0.6995,
+      "test_sd": 0.0154,
+      "max_epoch_jump_mean": 0.0722,
+      "train_sec_mean": 73.16
+    },
+    {
+      "split": "B",
+      "config": "ResNet18 (무작위 초기화)",
+      "val_mean": 0.9415,
+      "val_sd": 0.0102,
+      "test_mean": 0.711,
+      "test_sd": 0.0096,
+      "max_epoch_jump_mean": 0.092,
+      "train_sec_mean": 120.7
+    }
+  ],
+  "summary": {
+    "A": {
+      "spearman_val_test": 0.6000000000000001,
+      "chosen": "ResNet18 (무작위 초기화)",
+      "n_models_in_ensemble": 3,
+      "ensemble_test_macro_f1": 0.6989,
+      "ensemble_test_accuracy": 0.9655,
+      "missed_defects": 2448,
+      "n_test_defects": 7894,
+      "per_class_f1": {
+        "Center": 0.547,
+        "Donut": 0.562,
+        "Edge-Loc": 0.692,
+        "Edge-Ring": 0.824,
+        "Loc": 0.574,
+        "Near-full": 0.901,
+        "Random": 0.742,
+        "Scratch": 0.463,
+        "none": 0.985
+      }
+    },
+    "B": {
+      "spearman_val_test": 0.7999999999999999,
+      "chosen": "ResNet18 (무작위 초기화)",
+      "n_models_in_ensemble": 5,
+      "ensemble_test_macro_f1": 0.7487,
+      "ensemble_test_accuracy": 0.9676,
+      "missed_defects": 1953,
+      "n_test_defects": 7894,
+      "per_class_f1": {
+        "Center": 0.632,
+        "Donut": 0.722,
+        "Edge-Loc": 0.709,
+        "Edge-Ring": 0.839,
+        "Loc": 0.604,
+        "Near-full": 0.932,
+        "Random": 0.729,
+        "Scratch": 0.584,
+        "none": 0.986
+      }
+    }
+  },
+  "per_fold_choice_B": [
+    "CNN",
+    "ResNet18 (무작위 초기화)",
+    "ResNet18 (무작위 초기화)",
+    "ResNet18 (무작위 초기화)",
+    "ResNet18 (사전학습)"
+  ],
+  "runs": {
+    "A": {
+      "CNN": [
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "CNN",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 21,
+          "best_epoch": 15,
+          "train_sec": 105.9,
+          "val_macro_f1": 0.8276,
+          "max_epoch_jump": 0.1952,
+          "test_macro_f1": 0.6602
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "CNN",
+          "seed": 43,
+          "class_weight": false,
+          "epochs": 30,
+          "best_epoch": 28,
+          "train_sec": 157.6,
+          "val_macro_f1": 0.8072,
+          "max_epoch_jump": 0.2411,
+          "test_macro_f1": 0.6835
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "CNN",
+          "seed": 44,
+          "class_weight": false,
+          "epochs": 21,
+          "best_epoch": 15,
+          "train_sec": 106.6,
+          "val_macro_f1": 0.873,
+          "max_epoch_jump": 0.372,
+          "test_macro_f1": 0.676
+        }
+      ],
+      "CNN (클래스 가중치)": [
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "CNN (클래스 가중치)",
+          "seed": 42,
+          "class_weight": true,
+          "epochs": 17,
+          "best_epoch": 11,
+          "train_sec": 92.2,
+          "val_macro_f1": 0.8239,
+          "max_epoch_jump": 0.2644,
+          "test_macro_f1": 0.6492
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "CNN (클래스 가중치)",
+          "seed": 43,
+          "class_weight": true,
+          "epochs": 17,
+          "best_epoch": 11,
+          "train_sec": 92.5,
+          "val_macro_f1": 0.7652,
+          "max_epoch_jump": 0.2473,
+          "test_macro_f1": 0.6193
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "CNN (클래스 가중치)",
+          "seed": 44,
+          "class_weight": true,
+          "epochs": 14,
+          "best_epoch": 8,
+          "train_sec": 76.0,
+          "val_macro_f1": 0.8249,
+          "max_epoch_jump": 0.2783,
+          "test_macro_f1": 0.6136
+        }
+      ],
+      "ResNet18 (사전학습)": [
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "ResNet18 (사전학습)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 7,
+          "best_epoch": 1,
+          "train_sec": 33.8,
+          "val_macro_f1": 0.7836,
+          "max_epoch_jump": 0.0803,
+          "test_macro_f1": 0.6069
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "ResNet18 (사전학습)",
+          "seed": 43,
+          "class_weight": false,
+          "epochs": 12,
+          "best_epoch": 6,
+          "train_sec": 54.7,
+          "val_macro_f1": 0.7946,
+          "max_epoch_jump": 0.2368,
+          "test_macro_f1": 0.6738
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "ResNet18 (사전학습)",
+          "seed": 44,
+          "class_weight": false,
+          "epochs": 13,
+          "best_epoch": 7,
+          "train_sec": 59.5,
+          "val_macro_f1": 0.8323,
+          "max_epoch_jump": 0.142,
+          "test_macro_f1": 0.7221
+        }
+      ],
+      "ResNet18 (무작위 초기화)": [
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 24,
+          "best_epoch": 18,
+          "train_sec": 110.5,
+          "val_macro_f1": 0.8804,
+          "max_epoch_jump": 0.183,
+          "test_macro_f1": 0.6981
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 43,
+          "class_weight": false,
+          "epochs": 12,
+          "best_epoch": 6,
+          "train_sec": 55.9,
+          "val_macro_f1": 0.862,
+          "max_epoch_jump": 0.2,
+          "test_macro_f1": 0.66
+        },
+        {
+          "split": "A",
+          "fold": 0,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 44,
+          "class_weight": false,
+          "epochs": 16,
+          "best_epoch": 10,
+          "train_sec": 73.1,
+          "val_macro_f1": 0.828,
+          "max_epoch_jump": 0.2705,
+          "test_macro_f1": 0.6548
+        }
+      ]
+    },
+    "B": {
+      "CNN": [
+        {
+          "split": "B",
+          "fold": 0,
+          "config": "CNN",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 25,
+          "best_epoch": 19,
+          "train_sec": 131.0,
+          "val_macro_f1": 0.931,
+          "max_epoch_jump": 0.1584,
+          "test_macro_f1": 0.6343
+        },
+        {
+          "split": "B",
+          "fold": 1,
+          "config": "CNN",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 17,
+          "best_epoch": 11,
+          "train_sec": 88.9,
+          "val_macro_f1": 0.9059,
+          "max_epoch_jump": 0.1399,
+          "test_macro_f1": 0.661
+        },
+        {
+          "split": "B",
+          "fold": 2,
+          "config": "CNN",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 27,
+          "best_epoch": 21,
+          "train_sec": 138.3,
+          "val_macro_f1": 0.9202,
+          "max_epoch_jump": 0.2422,
+          "test_macro_f1": 0.68
+        },
+        {
+          "split": "B",
+          "fold": 3,
+          "config": "CNN",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 30,
+          "best_epoch": 28,
+          "train_sec": 155.8,
+          "val_macro_f1": 0.9267,
+          "max_epoch_jump": 0.178,
+          "test_macro_f1": 0.6793
+        },
+        {
+          "split": "B",
+          "fold": 4,
+          "config": "CNN",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 22,
+          "best_epoch": 16,
+          "train_sec": 113.9,
+          "val_macro_f1": 0.9061,
+          "max_epoch_jump": 0.1663,
+          "test_macro_f1": 0.6266
+        }
+      ],
+      "CNN (클래스 가중치)": [
+        {
+          "split": "B",
+          "fold": 0,
+          "config": "CNN (클래스 가중치)",
+          "seed": 42,
+          "class_weight": true,
+          "epochs": 30,
+          "best_epoch": 28,
+          "train_sec": 156.9,
+          "val_macro_f1": 0.9253,
+          "max_epoch_jump": 0.1965,
+          "test_macro_f1": 0.6823
+        },
+        {
+          "split": "B",
+          "fold": 1,
+          "config": "CNN (클래스 가중치)",
+          "seed": 42,
+          "class_weight": true,
+          "epochs": 27,
+          "best_epoch": 21,
+          "train_sec": 141.0,
+          "val_macro_f1": 0.9292,
+          "max_epoch_jump": 0.1103,
+          "test_macro_f1": 0.6763
+        },
+        {
+          "split": "B",
+          "fold": 2,
+          "config": "CNN (클래스 가중치)",
+          "seed": 42,
+          "class_weight": true,
+          "epochs": 21,
+          "best_epoch": 15,
+          "train_sec": 113.6,
+          "val_macro_f1": 0.9186,
+          "max_epoch_jump": 0.2103,
+          "test_macro_f1": 0.6543
+        },
+        {
+          "split": "B",
+          "fold": 3,
+          "config": "CNN (클래스 가중치)",
+          "seed": 42,
+          "class_weight": true,
+          "epochs": 13,
+          "best_epoch": 7,
+          "train_sec": 70.2,
+          "val_macro_f1": 0.9011,
+          "max_epoch_jump": 0.1853,
+          "test_macro_f1": 0.6134
+        },
+        {
+          "split": "B",
+          "fold": 4,
+          "config": "CNN (클래스 가중치)",
+          "seed": 42,
+          "class_weight": true,
+          "epochs": 18,
+          "best_epoch": 12,
+          "train_sec": 92.7,
+          "val_macro_f1": 0.9097,
+          "max_epoch_jump": 0.2353,
+          "test_macro_f1": 0.6774
+        }
+      ],
+      "ResNet18 (사전학습)": [
+        {
+          "split": "B",
+          "fold": 0,
+          "config": "ResNet18 (사전학습)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 9,
+          "best_epoch": 3,
+          "train_sec": 35.3,
+          "val_macro_f1": 0.9301,
+          "max_epoch_jump": 0.114,
+          "test_macro_f1": 0.6945
+        },
+        {
+          "split": "B",
+          "fold": 1,
+          "config": "ResNet18 (사전학습)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 24,
+          "best_epoch": 18,
+          "train_sec": 111.8,
+          "val_macro_f1": 0.9512,
+          "max_epoch_jump": 0.063,
+          "test_macro_f1": 0.6989
+        },
+        {
+          "split": "B",
+          "fold": 2,
+          "config": "ResNet18 (사전학습)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 16,
+          "best_epoch": 10,
+          "train_sec": 72.3,
+          "val_macro_f1": 0.9389,
+          "max_epoch_jump": 0.0365,
+          "test_macro_f1": 0.6743
+        },
+        {
+          "split": "B",
+          "fold": 3,
+          "config": "ResNet18 (사전학습)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 12,
+          "best_epoch": 6,
+          "train_sec": 53.5,
+          "val_macro_f1": 0.9309,
+          "max_epoch_jump": 0.0884,
+          "test_macro_f1": 0.7094
+        },
+        {
+          "split": "B",
+          "fold": 4,
+          "config": "ResNet18 (사전학습)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 22,
+          "best_epoch": 16,
+          "train_sec": 92.9,
+          "val_macro_f1": 0.9424,
+          "max_epoch_jump": 0.0593,
+          "test_macro_f1": 0.7202
+        }
+      ],
+      "ResNet18 (무작위 초기화)": [
+        {
+          "split": "B",
+          "fold": 0,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 17,
+          "best_epoch": 11,
+          "train_sec": 73.1,
+          "val_macro_f1": 0.9242,
+          "max_epoch_jump": 0.0816,
+          "test_macro_f1": 0.71
+        },
+        {
+          "split": "B",
+          "fold": 1,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 26,
+          "best_epoch": 20,
+          "train_sec": 116.1,
+          "val_macro_f1": 0.9554,
+          "max_epoch_jump": 0.1108,
+          "test_macro_f1": 0.7078
+        },
+        {
+          "split": "B",
+          "fold": 2,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 30,
+          "best_epoch": 26,
+          "train_sec": 139.2,
+          "val_macro_f1": 0.9439,
+          "max_epoch_jump": 0.1224,
+          "test_macro_f1": 0.7228
+        },
+        {
+          "split": "B",
+          "fold": 3,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 30,
+          "best_epoch": 27,
+          "train_sec": 138.1,
+          "val_macro_f1": 0.9449,
+          "max_epoch_jump": 0.0735,
+          "test_macro_f1": 0.7192
+        },
+        {
+          "split": "B",
+          "fold": 4,
+          "config": "ResNet18 (무작위 초기화)",
+          "seed": 42,
+          "class_weight": false,
+          "epochs": 30,
+          "best_epoch": 29,
+          "train_sec": 137.0,
+          "val_macro_f1": 0.939,
+          "max_epoch_jump": 0.0719,
+          "test_macro_f1": 0.6954
+        }
+      ]
+    }
+  }
+}
