@@ -49,6 +49,16 @@ os.chdir(ROOT)
 sys.path.insert(0, str(ROOT))
 Path("results/14_runs").mkdir(parents=True, exist_ok=True)
 
+# 위의 ! 명령은 실패해도 셀이 멈추지 않으므로, 필요한 파일이 있는지 여기서 확인한다
+for need, hint in [
+    ("../anomaly-detection/results/13_runs/bottle_pc10.csv",
+     "13장 Notebook을 먼저 끝까지 실행하세요. Colab에서는 13장이 Drive의 manufacturing-ai/13_runs 폴더에 결과를 저장합니다"),
+    ("../anomaly-detection/data/mvtec_ad/bottle",
+     "MVTec AD 압축 파일 위치(TAR)를 확인하세요. 13장과 같은 파일을 씁니다"),
+]:
+    if not Path(need).exists():
+        raise FileNotFoundError(f"{need} 없음 → {hint}")
+
 # %%
 import json
 
