@@ -53,6 +53,7 @@ Path("results/13_runs").mkdir(parents=True, exist_ok=True)
 import json
 import shutil
 import time
+import zipfile
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -110,13 +111,28 @@ plt.show()
 # 끝난 카테고리는 `results/13_runs/`에 저장해 두고, 다시 실행하면 건너뜁니다.
 
 # %%
-def cached(name, fn):
+def npz_ok(p):
+    try:
+        with zipfile.ZipFile(p) as z:
+            return z.testzip() is None
+    except (OSError, zipfile.BadZipFile):
+        return False
+
+
+def cached(name, fn, need=()):
     f_json, f_csv = Path(f"results/13_runs/{name}.json"), Path(f"results/13_runs/{name}.csv")
-    if f_json.exists() and f_csv.exists():
-        return json.loads(f_json.read_text(encoding="utf-8")), pd.read_csv(f_csv)
+    if f_json.exists() and f_csv.exists() and all(npz_ok(p) for p in need):
+        try:                                           # 복사 중 끊겨 깨진 파일이면 다시 계산
+            out, scores = json.loads(f_json.read_text(encoding="utf-8")), pd.read_csv(f_csv)
+            if len(scores) > 0:
+                return out, scores
+        except (ValueError, pd.errors.EmptyDataError, pd.errors.ParserError):
+            pass
+        print(f"{name}: 저장 파일이 손상되어 다시 계산합니다")
     out, scores = fn()
-    f_json.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
-    scores.to_csv(f_csv, index=False)
+    tmp = f_csv.with_suffix(".tmp")                    # 임시 파일에 쓴 뒤 이름을 바꿔, 반쯤 쓴 파일이 남지 않게 함
+    scores.to_csv(tmp, index=False); tmp.replace(f_csv)
+    tmp.write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8"); tmp.replace(f_json)
     return out, scores
 
 
@@ -124,7 +140,10 @@ def patchcore_job(c, ratio):
     def fn():
         out, scores, maps = run_patchcore(c, coreset_ratio=ratio, keep_maps=(c in FOCUS and ratio == 0.1))
         if maps:
-            np.savez_compressed(f"results/13_runs/{c}_maps.npz", **{k.replace("/", "__"): v for k, v in maps.items()})
+            f_npz = Path(f"results/13_runs/{c}_maps.npz")
+            with open(f_npz.with_suffix(".tmp"), "wb") as f:
+                np.savez_compressed(f, **{k.replace("/", "__"): v for k, v in maps.items()})
+            f_npz.with_suffix(".tmp").replace(f_npz)
         return out, scores
     return fn
 
@@ -142,7 +161,8 @@ def knn_job(c):
 results, all_scores = {"patchcore_10": {}, "patchcore_1": {}, "global_knn": {}}, {}
 for c in CATEGORIES:
     t0 = time.perf_counter()
-    results["patchcore_10"][c], all_scores[c] = cached(f"{c}_pc10", patchcore_job(c, 0.1))
+    maps = [f"results/13_runs/{c}_maps.npz"] if c in FOCUS else []   # 이상 지도도 있어야 끝난 것으로 봄
+    results["patchcore_10"][c], all_scores[c] = cached(f"{c}_pc10", patchcore_job(c, 0.1), need=maps)
     results["patchcore_1"][c], _ = cached(f"{c}_pc1", patchcore_job(c, 0.01))
     results["global_knn"][c], _ = cached(f"{c}_knn", knn_job(c))
     r = results["patchcore_10"][c]

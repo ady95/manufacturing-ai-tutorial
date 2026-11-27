@@ -19,9 +19,13 @@ from PIL import Image, ImageDraw
 
 BASE = Path(__file__).resolve().parents[1]
 MVTEC = BASE / "../anomaly-detection/data/mvtec_ad"
-RUNS13 = BASE / "../anomaly-detection/results/13_runs"            # 13장 Notebook을 직접 돌린 결과
-if not (RUNS13 / "bottle_maps.npz").exists():
-    RUNS13 = BASE / "../anomaly-detection/results/13_runs_book"   # 없으면 책 실측 결과 (예제 저장소에 포함)
+RUNS13_OWN = BASE / "../anomaly-detection/results/13_runs"        # 13장 Notebook을 직접 돌린 결과
+RUNS13_BOOK = BASE / "../anomaly-detection/results/13_runs_book"  # 책 실측 결과 (예제 저장소에 포함)
+FOCUS = ["bottle", "screw", "carpet"]
+# 14장 Notebook(src/insp_utils.py)과 같은 기준: 15개 카테고리와 세 카테고리의 이상 지도가 모두 있을 때만 직접 실행 결과를 씀
+_own_ok = (len(list(RUNS13_OWN.glob("*_pc10.csv"))) >= 15
+           and all((RUNS13_OWN / f"{c}_maps.npz").exists() for c in FOCUS))
+RUNS13 = RUNS13_OWN if _own_ok else RUNS13_BOOK
 QUEUE = BASE / "results/14_review_queue.csv"
 LOG = BASE / "results/review_log.csv"
 ORDER = {"재검토": 0, "자동 불량": 1, "자동 통과": 2}
