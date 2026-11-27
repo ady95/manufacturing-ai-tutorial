@@ -1,8 +1,10 @@
 # AI로 만드는 제조공정 품질관리 따라하기 — 예제 코드
 
-<a href="https://wikidocs.net/book/22288"><img src="docs/images/book-cover.png" alt="AI로 만드는 제조공정 품질관리 따라하기 표지" width="240" align="right"></a>
+<a href="https://wikidocs.net/book/22288"><img src="docs/images/book-cover.png" alt="AI로 만드는 제조공정 품질관리 따라하기 표지" width="240"></a>
 
 위키독스 책 「[AI로 만드는 제조공정 품질관리 따라하기](https://wikidocs.net/book/22288)」(반도체 수율 분석부터 가상계측·AI 불량 판독까지)의 예제 코드 저장소입니다.
+
+**책 구매**: YES24(준비 중) · 교보문고(준비 중) · [위키독스](https://wikidocs.net/book/22288)
 
 모든 Notebook은 **Google Colab**에서 실행하는 것을 기준으로 작성합니다.
 
