@@ -1,0 +1,1 @@
+{"category": "leather", "coreset_ratio": 0.1, "image_AUROC": 1.0, "pixel_AUROC": 0.9922, "pixel_AUPRO": 0.9755, "fit_sec": 135.2, "memory_bank": 25088, "feature_dim": 1536, "infer_ms_per_image": 26.79, "peak_gpu_gb": 2.9, "n_test": 124}

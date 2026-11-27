@@ -1,0 +1,1 @@
+{"category": "screw", "coreset_ratio": 0.1, "image_AUROC": 0.965, "pixel_AUROC": 0.9883, "pixel_AUPRO": 0.9353, "fit_sec": 215.8, "memory_bank": 32768, "feature_dim": 1536, "infer_ms_per_image": 36.18, "peak_gpu_gb": 2.98, "n_test": 160}

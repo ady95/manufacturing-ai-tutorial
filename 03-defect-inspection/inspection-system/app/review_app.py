@@ -19,7 +19,9 @@ from PIL import Image, ImageDraw
 
 BASE = Path(__file__).resolve().parents[1]
 MVTEC = BASE / "../anomaly-detection/data/mvtec_ad"
-RUNS13 = BASE / "../anomaly-detection/results/13_runs"
+RUNS13 = BASE / "../anomaly-detection/results/13_runs"            # 13장 Notebook을 직접 돌린 결과
+if not (RUNS13 / "bottle_maps.npz").exists():
+    RUNS13 = BASE / "../anomaly-detection/results/13_runs_book"   # 없으면 책 실측 결과 (예제 저장소에 포함)
 QUEUE = BASE / "results/14_review_queue.csv"
 LOG = BASE / "results/review_log.csv"
 ORDER = {"재검토": 0, "자동 불량": 1, "자동 통과": 2}

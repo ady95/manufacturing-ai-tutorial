@@ -1,0 +1,1 @@
+{"category": "pill", "coreset_ratio": 0.1, "image_AUROC": 0.946, "pixel_AUROC": 0.9812, "pixel_AUPRO": 0.9503, "fit_sec": 163.9, "memory_bank": 27340, "feature_dim": 1536, "infer_ms_per_image": 30.99, "peak_gpu_gb": 2.26, "n_test": 167}

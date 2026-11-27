@@ -1,0 +1,1 @@
+{"category": "bottle", "coreset_ratio": 0.01, "image_AUROC": 1.0, "pixel_AUROC": 0.9852, "pixel_AUPRO": 0.941, "fit_sec": 16.6, "memory_bank": 2140, "feature_dim": 1536, "infer_ms_per_image": 7.16, "peak_gpu_gb": 1.65, "n_test": 83}

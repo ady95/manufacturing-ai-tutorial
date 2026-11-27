@@ -23,17 +23,19 @@ SOFTWARE.
 -------------------------------------------------------------------------------
 Exceptions / 예외
 
-1. The following figures contain images from the MVTec AD dataset and are
-   NOT covered by the MIT License. They are licensed under CC BY-NC-SA 4.0
-   (non-commercial use only). Source: Bergmann et al., CVPR 2019, MVTec
-   Software GmbH.
-   아래 그림에는 MVTec AD 이미지가 들어 있어 MIT 라이선스가 아니라
-   CC BY-NC-SA 4.0(비상업적 이용)을 따릅니다.
+1. The following files contain images from, or results derived from, the
+   MVTec AD dataset and are NOT covered by the MIT License. They are licensed
+   under CC BY-NC-SA 4.0 (non-commercial use only). Source: Bergmann et al.,
+   CVPR 2019, MVTec Software GmbH.
+   아래 파일에는 MVTec AD 이미지 또는 이 데이터에서 계산한 결과(이상 점수·
+   이상 지도)가 들어 있어 MIT 라이선스가 아니라 CC BY-NC-SA 4.0(비상업적
+   이용)을 따릅니다.
 
    - 03-defect-inspection/anomaly-detection/results/13_examples.png
    - 03-defect-inspection/anomaly-detection/results/13_heatmaps.png
    - 03-defect-inspection/inspection-system/results/14_mask_to_box.png
    - 03-defect-inspection/inspection-system/results/14_review_ui.png
+   - 03-defect-inspection/anomaly-detection/results/13_runs_book/ (all files)
 
 2. Datasets (UCI SECOM, PHM 2016 CMP, WM-811K, MVTec AD) are not included in
    this repository and remain under their own terms.

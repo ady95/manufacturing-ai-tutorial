@@ -1,0 +1,1 @@
+{"category": "hazelnut", "coreset_ratio": 0.01, "image_AUROC": 1.0, "pixel_AUROC": 0.9879, "pixel_AUPRO": 0.9538, "fit_sec": 51.1, "memory_bank": 4003, "feature_dim": 1536, "infer_ms_per_image": 8.87, "peak_gpu_gb": 3.69, "n_test": 110}

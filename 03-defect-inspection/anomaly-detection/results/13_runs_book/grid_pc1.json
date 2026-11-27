@@ -1,0 +1,1 @@
+{"category": "grid", "coreset_ratio": 0.01, "image_AUROC": 0.9825, "pixel_AUROC": 0.9824, "pixel_AUPRO": 0.9157, "fit_sec": 21.7, "memory_bank": 2703, "feature_dim": 1536, "infer_ms_per_image": 7.62, "peak_gpu_gb": 2.43, "n_test": 78}

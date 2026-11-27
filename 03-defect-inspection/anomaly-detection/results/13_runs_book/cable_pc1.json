@@ -1,0 +1,1 @@
+{"category": "cable", "coreset_ratio": 0.01, "image_AUROC": 0.982, "pixel_AUROC": 0.9828, "pixel_AUPRO": 0.9201, "fit_sec": 27.7, "memory_bank": 2293, "feature_dim": 1536, "infer_ms_per_image": 7.99, "peak_gpu_gb": 2.1, "n_test": 150}

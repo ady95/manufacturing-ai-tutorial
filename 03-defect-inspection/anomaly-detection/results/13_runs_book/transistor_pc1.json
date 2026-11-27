@@ -1,0 +1,1 @@
+{"category": "transistor", "coreset_ratio": 0.01, "image_AUROC": 0.9888, "pixel_AUROC": 0.9653, "pixel_AUPRO": 0.932, "fit_sec": 23.4, "memory_bank": 2181, "feature_dim": 1536, "infer_ms_per_image": 7.41, "peak_gpu_gb": 1.92, "n_test": 100}

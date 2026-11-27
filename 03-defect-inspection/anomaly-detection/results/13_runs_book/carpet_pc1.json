@@ -1,0 +1,1 @@
+{"category": "carpet", "coreset_ratio": 0.01, "image_AUROC": 0.9839, "pixel_AUROC": 0.9902, "pixel_AUPRO": 0.9457, "fit_sec": 33.0, "memory_bank": 2867, "feature_dim": 1536, "infer_ms_per_image": 7.73, "peak_gpu_gb": 2.14, "n_test": 117}

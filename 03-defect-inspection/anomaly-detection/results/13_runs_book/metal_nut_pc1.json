@@ -1,0 +1,1 @@
+{"category": "metal_nut", "coreset_ratio": 0.01, "image_AUROC": 0.998, "pixel_AUROC": 0.9871, "pixel_AUPRO": 0.9411, "fit_sec": 17.8, "memory_bank": 2252, "feature_dim": 1536, "infer_ms_per_image": 7.65, "peak_gpu_gb": 1.84, "n_test": 115}

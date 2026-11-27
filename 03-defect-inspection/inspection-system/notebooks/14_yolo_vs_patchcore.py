@@ -13,7 +13,8 @@
 #
 # 「AI로 만드는 제조공정 품질관리 따라하기」 14장 실습 Notebook입니다. GPU(T4) 런타임을 쓰세요.
 # **13장 Notebook을 먼저 실행해야 합니다**(PatchCore 점수·이상 지도를 불러옵니다).
-# Colab에서는 13장 Notebook이 Drive(`MyDrive/manufacturing-ai/13_runs`)에 보관한 결과를 첫 셀이 가져옵니다.
+# 13장을 직접 실행하지 않았다면 저장소에 들어 있는 책 실측 결과(`anomaly-detection/results/13_runs_book`)를 씁니다.
+# Colab에서 13장을 실행했다면 13장이 Drive(`MyDrive/manufacturing-ai/13_runs`)에 보관한 결과를 첫 셀이 가져옵니다.
 #
 # - 데이터: MVTec AD (CC BY-NC-SA 4.0, 비상업적 이용). 결함 마스크를 상자(Bounding Box)로 바꿔 YOLO 라벨로 씁니다
 # - YOLO: Ultralytics (AGPL-3.0)
@@ -41,8 +42,9 @@ if "google.colab" in sys.modules and not Path("src").exists():
     TAR = "/content/drive/MyDrive/mvtec_anomaly_detection.tar.xz"      # 13장과 같은 위치
     MVTEC_DIR = "../anomaly-detection/data/mvtec_ad"
     !mkdir -p {MVTEC_DIR} && tar -xJf {TAR} -C {MVTEC_DIR}
-    # 13장 Notebook이 Drive에 보관한 PatchCore 결과 (Colab은 Notebook마다 런타임이 따로라서)
-    !mkdir -p ../anomaly-detection/results && cp -r /content/drive/MyDrive/manufacturing-ai/13_runs ../anomaly-detection/results/
+    # 13장을 Colab에서 실행했다면 Drive에 보관된 결과를 가져옴 (Colab은 Notebook마다 런타임이 따로라서)
+    RUNS_DRIVE = "/content/drive/MyDrive/manufacturing-ai/13_runs"
+    !if [ -d {RUNS_DRIVE} ]; then mkdir -p ../anomaly-detection/results && cp -r {RUNS_DRIVE} ../anomaly-detection/results/; fi
 
 ROOT = Path.cwd() if (Path.cwd() / "src").exists() else Path.cwd().parent
 os.chdir(ROOT)
@@ -50,14 +52,8 @@ sys.path.insert(0, str(ROOT))
 Path("results/14_runs").mkdir(parents=True, exist_ok=True)
 
 # 위의 ! 명령은 실패해도 셀이 멈추지 않으므로, 필요한 파일이 있는지 여기서 확인한다
-for need, hint in [
-    ("../anomaly-detection/results/13_runs/bottle_pc10.csv",
-     "13장 Notebook을 먼저 끝까지 실행하세요. Colab에서는 13장이 Drive의 manufacturing-ai/13_runs 폴더에 결과를 저장합니다"),
-    ("../anomaly-detection/data/mvtec_ad/bottle",
-     "MVTec AD 압축 파일 위치(TAR)를 확인하세요. 13장과 같은 파일을 씁니다"),
-]:
-    if not Path(need).exists():
-        raise FileNotFoundError(f"{need} 없음 → {hint}")
+if not Path("../anomaly-detection/data/mvtec_ad/bottle").exists():
+    raise FileNotFoundError("MVTec AD가 없습니다 → 압축 파일 위치(TAR)를 확인하세요. 13장과 같은 파일을 씁니다")
 
 # %%
 import json
@@ -72,6 +68,7 @@ import src.insp_utils as U
 
 ENV = U.env_info()
 print(ENV)
+print("13장 결과:", U.RUNS13)                 # 13_runs(직접 실행) 또는 13_runs_book(책 실측)
 
 # %% [markdown]
 # ## 14-1. 마스크에서 상자 라벨 만들기

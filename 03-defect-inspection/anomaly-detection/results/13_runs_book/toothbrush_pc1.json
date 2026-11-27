@@ -1,0 +1,1 @@
+{"category": "toothbrush", "coreset_ratio": 0.01, "image_AUROC": 0.9056, "pixel_AUROC": 0.9877, "pixel_AUPRO": 0.8677, "fit_sec": 5.7, "memory_bank": 614, "feature_dim": 1536, "infer_ms_per_image": 5.82, "peak_gpu_gb": 0.88, "n_test": 42}

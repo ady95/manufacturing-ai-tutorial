@@ -1,0 +1,1 @@
+{"category": "zipper", "coreset_ratio": 0.1, "image_AUROC": 0.9785, "pixel_AUROC": 0.9815, "pixel_AUPRO": 0.9344, "fit_sec": 125.2, "memory_bank": 24576, "feature_dim": 1536, "infer_ms_per_image": 27.38, "peak_gpu_gb": 2.58, "n_test": 151}

@@ -21,7 +21,18 @@ import pandas as pd
 SEED = 42
 FOCUS = ["bottle", "screw", "carpet"]
 MVTEC = Path("../anomaly-detection/data/mvtec_ad")
-RUNS13 = Path("../anomaly-detection/results/13_runs")
+RUNS13_OWN = Path("../anomaly-detection/results/13_runs")         # 13장 Notebook을 직접 돌린 결과
+RUNS13_BOOK = Path("../anomaly-detection/results/13_runs_book")   # 책 실측 결과 (예제 저장소에 포함)
+
+
+def _pick_runs13() -> Path:
+    """13장 결과를 직접 만들었으면(15개 카테고리 점수 + 이상 지도 3개) 그것을, 아니면 책 실측 결과를 쓴다."""
+    own_ok = (len(list(RUNS13_OWN.glob("*_pc10.csv"))) >= 15
+              and all((RUNS13_OWN / f"{c}_maps.npz").exists() for c in FOCUS))
+    return RUNS13_OWN if own_ok else RUNS13_BOOK
+
+
+RUNS13 = _pick_runs13()
 WORK = Path("work")                                  # YOLO 데이터·체크포인트 (저장소에 올리지 않음)
 YOLO_CFG = dict(epochs=100, imgsz=640, batch=16, workers=0, amp=False, seed=SEED, deterministic=True,
                 plots=False, verbose=False, val=False)    # 고정 100 epoch, 마지막 가중치 사용

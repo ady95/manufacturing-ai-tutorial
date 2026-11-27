@@ -1,0 +1,1 @@
+{"category": "wood", "coreset_ratio": 0.01, "image_AUROC": 0.9877, "pixel_AUROC": 0.9332, "pixel_AUPRO": 0.8846, "fit_sec": 26.6, "memory_bank": 2529, "feature_dim": 1536, "infer_ms_per_image": 7.33, "peak_gpu_gb": 2.51, "n_test": 79}

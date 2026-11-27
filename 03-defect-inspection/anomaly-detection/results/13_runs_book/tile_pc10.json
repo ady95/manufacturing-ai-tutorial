@@ -1,0 +1,1 @@
+{"category": "tile", "coreset_ratio": 0.1, "image_AUROC": 1.0, "pixel_AUROC": 0.9555, "pixel_AUPRO": 0.8638, "fit_sec": 122.7, "memory_bank": 23552, "feature_dim": 1536, "infer_ms_per_image": 26.28, "peak_gpu_gb": 2.84, "n_test": 117}

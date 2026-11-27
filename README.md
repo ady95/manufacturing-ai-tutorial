@@ -35,4 +35,4 @@
 
 ## 라이선스
 
-코드는 [MIT License](LICENSE)입니다. 단, MVTec AD 이미지가 들어간 결과 그림 4개는 CC BY-NC-SA 4.0(비상업적 이용)을 따르고, 14장에서 쓰는 Ultralytics는 AGPL-3.0입니다. 자세한 예외는 [LICENSE](LICENSE) 파일을 확인하세요.
+코드는 [MIT License](LICENSE)입니다. 단, MVTec AD 이미지가 들어간 결과 그림 4개와 13장 실측 결과(`13_runs_book/`)는 CC BY-NC-SA 4.0(비상업적 이용)을 따르고, 14장에서 쓰는 Ultralytics는 AGPL-3.0입니다. 자세한 예외는 [LICENSE](LICENSE) 파일을 확인하세요.

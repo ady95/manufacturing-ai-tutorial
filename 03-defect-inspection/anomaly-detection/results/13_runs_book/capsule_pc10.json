@@ -1,0 +1,1 @@
+{"category": "capsule", "coreset_ratio": 0.1, "image_AUROC": 0.9932, "pixel_AUROC": 0.9901, "pixel_AUPRO": 0.9341, "fit_sec": 112.2, "memory_bank": 22425, "feature_dim": 1536, "infer_ms_per_image": 25.94, "peak_gpu_gb": 2.19, "n_test": 132}

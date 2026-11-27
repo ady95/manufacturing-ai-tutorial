@@ -36,6 +36,7 @@ Thumbs.db
 03-defect-inspection/wafermap/results/12b_runs/
 *.tar.xz
 *.npz
+!03-defect-inspection/anomaly-detection/results/13_runs_book/*.npz
 03-defect-inspection/anomaly-detection/work/
 03-defect-inspection/anomaly-detection/results/13_runs/
 03-defect-inspection/inspection-system/work/
